@@ -16,6 +16,7 @@ authentication
 multiple task boards
 suggest next task to complete
 daily agenda
+themes
 
 --DEVLOG--
 basic authentication logic (Sept 17, 2023)

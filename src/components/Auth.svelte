@@ -23,6 +23,9 @@
                 else if(err.code === 'auth/weak-password') {
                     alert('Password must be at least 6 characters');
                 }
+                else if(err.code === 'auth/invalid-email') {
+                    alert('Invalid email');
+                }
                 else {
                     alert(err);
                 }
@@ -34,11 +37,23 @@
             }
             catch(err) {
                 console.log(err);
-                if(err.code === 'auth/invalid-login-credentials') {
+                if(err.code === 'auth/user-not-found') {
+                    alert('User not found');
+                }
+                else if(err.code === 'auth/invalid-login-credentials') {
                     alert('Incorrect password');
                 }
-                else if(err.code === 'auth/user-not-found') {
-                    alert('User not found');
+                else if(err.code === 'auth/too-many-requests') {
+                    alert('Too many requests, please try again later');
+                }
+                else if(err.code === 'auth/user-disabled') {
+                    alert('User disabled');
+                }
+                else if(err.code === 'auth/invalid-email') {
+                    alert('Invalid email');
+                }
+                else if(err.code === 'auth/wrong-password') {
+                    alert('Incorrect password');
                 }
                 else {
                     alert(err);
