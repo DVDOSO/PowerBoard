@@ -1,0 +1,21 @@
+--TODO--
+create/fix popups for authentication failures (wrong password, invalid email etc) (DAVID)
+make it able to add tasks (LEO)
+
+
+--PLAN--
+1.0
+authentication
+2d plane to view tasks
+    hover over points to edit, remove, etc
+    colour changing points depending on progress
+    create edit delete
+    ui to view finished tasks
+
+2.0
+multiple task boards
+suggest next task to complete
+daily agenda
+
+--DEVLOG--
+basic authentication logic (Sept 17, 2023)

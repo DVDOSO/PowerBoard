@@ -1,2 +1,0 @@
-create/fix popups for authentication failures (wrong password, invalid email etc)
-email verifier
