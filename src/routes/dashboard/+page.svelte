@@ -5,12 +5,11 @@
 
     let email;
     authStore.subscribe((curr) => {
-        console.log('CURR', curr)
         email = curr?.currentUser?.email;
     })
 </script>
 
-{#if $authStore.currentUser}
+{#if $authStore.currentUser !== null}
     <div>
         <h1>Welcome {email}!</h1>
         <AuthReset/>
@@ -22,13 +21,13 @@
 {/if}
 
 <style>
-    div {
+    /*div {
         flex: 1;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-    }
+    }*/
     h1 {
         text-align: center;
     }

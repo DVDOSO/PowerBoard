@@ -1,12 +1,12 @@
 <script>
     import { goto } from '$app/navigation';
-    function routeHome() {
+    async function routeHome() {
         goto('/')
     }
-    function routeSignup() {
+    async function routeSignup() {
         goto('/signup')
     }
-    function routeLogin() {
+    async function routeLogin() {
         goto('/login')
     }
 </script>
