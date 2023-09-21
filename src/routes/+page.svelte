@@ -1,5 +1,10 @@
 <script>
 	import NavbarGuest from '../components/NavbarGuest.svelte';
+    import { goto } from '$app/navigation';
+
+    async function routeSignup() {
+        goto('/signup')
+    }
 </script>
 
 <NavbarGuest/>
@@ -9,7 +14,7 @@
         <h1 class='title'>
             PowerBoard
         </h1>
-        <button class='start'>Get Started!</button>
+        <button class='start' on:click={routeSignup}>Get Started!</button>
     </div>
 </div>
 

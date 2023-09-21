@@ -6,7 +6,7 @@
     let password = '';
 
     async function handleSubmit() {
-        console.log(email, password);
+        //console.log(email, password);
 
         if(!email || !password) {
             alert("Please fill out all fields");
@@ -70,6 +70,7 @@
     }
     input {
         padding: 1vh;
+        width: 15vw;
         
     }
     .submitButton {

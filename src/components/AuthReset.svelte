@@ -1,9 +1,10 @@
 <script>
     import { authHandlers, authStore } from '../stores/authStore.js';
+    import { auth } from '../lib/firebase/firebase.client';
     let action = '';
     let newPass = '';
 
-    
+    console.log($authStore.currentUser);
 </script>
 
 <div class="container">

@@ -5,7 +5,7 @@
     import { browser } from '$app/environment'
     onMount(() => {
         const unsubscribe = auth.onAuthStateChanged((user) => {
-            console.log(user)
+            //console.log(user)
             authStore.update((curr) => {
                 return {
                     ...curr,
@@ -14,11 +14,8 @@
                 };
             });
 
-            if(
-                browser && !$authStore?.currentUser && !$authStore.isLoading && window.location.pathname !== '/'
-            ){
+            if(browser && $authStore?.currentUser === null && !$authStore.isLoading && window.location.pathname !== '/') {
                 window.location.href = '/';
-                console.log(authStore.currentUser, authStore.isLoading);
             }
         })
         return unsubscribe;

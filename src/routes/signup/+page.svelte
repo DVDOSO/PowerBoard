@@ -75,6 +75,7 @@
     }
     input {
         padding: 1vh;
+        width: 15vw;
         
     }
     .submitButton {

@@ -9,13 +9,29 @@ export const authStore = writable({
 });
 
 export const authHandlers = {
+    verifyEmail: async () => {
+        console.log(authStore.currentUser);
+        sendEmailVerification(authStore.currentUser)
+            .then(() => {
+                alert("Email verification sent");
+            })
+            .catch((error) => {
+                alert(error);
+            });
+        authStore.currentUser = null;
+    },
     login: async (email, password) => {
         signInWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
+            .then(() => {
                 // Signed in 
-                authStore.currentUser = userCredential.user;
-                window.location.href = '/dashboard';
-                // ...
+                authStore.currentUser = auth.currentUser;
+                if(!authStore.currentUser.emailVerified) {
+                    alert('Email not verified');
+                    authStore.currentUser = auth.currentUser;
+                }
+                else {
+                    window.location.href = '/dashboard';
+                }
             })
             .catch((error) => {
                 if(error.code === 'auth/wrong-password') {
@@ -47,10 +63,8 @@ export const authHandlers = {
     signup: async (email, password) => {
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                // Signed in 
                 authStore.currentUser = userCredential.user;
-                window.location.href = '/dashboard';
-                // ...
+                authHandlers.verifyEmail();
             })
             .catch((error) => {
                 if(error.code === 'auth/email-already-in-use') {
@@ -78,8 +92,5 @@ export const authHandlers = {
     },
     resetPassword: async (email) => {
         await sendPasswordResetEmail(auth, email);
-    },
-    verifyEmail: async (email) => {
-        await sendEmailVerification(email);
     }
 }
