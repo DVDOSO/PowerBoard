@@ -22,3 +22,4 @@ themes
 basic authentication logic (Sept 17, 2023)
 redid basic authentication + basic UI (Sept 19, 2023)
 email verification (Sept 20, 2023)
+forgot password email (Sept 21, 2023)
