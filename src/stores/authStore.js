@@ -91,6 +91,12 @@ export const authHandlers = {
             });
     },
     resetPassword: async (email) => {
-        await sendPasswordResetEmail(auth, email);
+        sendPasswordResetEmail(auth, email)
+            .then(() => {
+                alert('Password reset email sent');
+            })
+            .catch((error) => {
+                alert(error);
+            });
     }
 }
