@@ -1,9 +1,14 @@
 <script>
     import { goto } from '$app/navigation';
     import { authHandlers, authStore } from '../stores/authStore.js';
+	import Sidebar from './Sidebar.svelte';
+
+    let sidebar = false;
+
     async function routeHome() {
         goto('/')
     }
+    
 
 </script>
 
@@ -16,20 +21,23 @@
         </div>
     </ul>
 </div>
+{#if sidebar}
+    <Sidebar/>
+{/if}
 
 <style>
     .containerNav {
         padding: 10px;
-        background-color:rgb(144, 233, 255);
+        background-color:rgb(92, 214, 104);
         position: fixed;
         top: 0;
         width: 100%;
+        height: 7vh;
     }
     ul, li {
         display: inline;
     }
     button {
-        border-color: rgb(154, 181, 255);
         background-color: transparent;
         border: black solid 1px;
         color: black;
@@ -43,7 +51,7 @@
         transition-duration: 0.4s;
     }
     button:hover {
-        background-color: rgb(154, 181, 255);
+        background-color: rgb(97, 190, 81);
         color: white;
     }
     .auth {

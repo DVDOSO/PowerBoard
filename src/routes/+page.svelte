@@ -1,9 +1,15 @@
 <script>
 	import NavbarGuest from '../components/NavbarGuest.svelte';
     import { goto } from '$app/navigation';
+    import { authStore } from '../stores/authStore';
 
     async function routeSignup() {
-        goto('/signup')
+        if($authStore.currentUser !== null) {
+            goto('/dashboard')
+        }
+        else {
+            goto('/signup')
+        }
     }
 </script>
 
@@ -23,6 +29,7 @@
     .webpage {
         height: 100vh;
         overflow: hidden;
+        display: inline;
     }
     button {
         border-color: rgb(154, 181, 255);

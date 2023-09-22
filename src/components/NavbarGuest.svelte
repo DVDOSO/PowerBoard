@@ -1,13 +1,24 @@
 <script>
     import { goto } from '$app/navigation';
+    import { authHandlers, authStore } from '../stores/authStore.js';
     async function routeHome() {
         goto('/')
     }
     async function routeSignup() {
-        goto('/signup')
+        if($authStore.currentUser !== null) {
+            goto('/dashboard')
+        }
+        else {
+            goto('/signup')
+        }
     }
     async function routeLogin() {
-        goto('/login')
+        if($authStore.currentUser !== null) {
+            goto('/dashboard')
+        }
+        else {
+            goto('/login')
+        }
     }
 </script>
 
@@ -29,12 +40,12 @@
         position: fixed;
         top: 0;
         width: 100%;
+        height: 7vh;
     }
     ul, li {
         display: inline;
     }
     button {
-        border-color: rgb(154, 181, 255);
         background-color: transparent;
         border: black solid 1px;
         color: black;

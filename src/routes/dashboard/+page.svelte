@@ -1,6 +1,8 @@
 <script>
 	import { authHandlers, authStore } from '../../stores/authStore.js';
     import NavbarPrivate from "../../components/NavbarPrivate.svelte";
+    import Sidebar from "../../components/Sidebar.svelte";
+	import Board from '../../components/Board.svelte';
 
     let email;
     authStore.subscribe((curr) => {
@@ -9,11 +11,13 @@
 </script>
 
 {#if $authStore.currentUser !== null}
-    <NavbarPrivate/>
     <div class='webpage'>
+        <NavbarPrivate/>
+        <Sidebar/>
+        <Board/>
         <div class='containerMain'>
             <h1 class='title'>
-                Welcome, {email}!
+                Board Name
             </h1>
         </div>
     </div>
@@ -26,18 +30,18 @@
 <style>
     .webpage {
         height: 100vh;
-        overflow: hidden;
     }
     .containerMain {
-        text-align: center;
-        margin: 0;
-        padding: 10px;
-        background-color: rgb(210, 246, 255);
-        width: 100%;
-        height: 300vh;
+        background-color: rgb(177, 252, 181);
+        margin-left: 12vw;
+        width: 44vw;
+        margin-top: 7vh;
+        height: 93vh;
+        position: fixed;
     }
     .title {
         font-size: 60px;
-        margin-top: 35vh;
+        margin-top: 2vh;
+        margin-left: 2vw;
     }
 </style>
