@@ -5,18 +5,22 @@
         goto('/')
     }
     async function routeSignup() {
-        if($authStore.currentUser !== null) {
+        console.log($authStore.currentUser)
+        if($authStore.currentUser !== null && $authStore.currentUser.emailVerified) {
             goto('/dashboard')
         }
         else {
+            $authStore.currentUser = null;
             goto('/signup')
         }
     }
     async function routeLogin() {
-        if($authStore.currentUser !== null) {
+        console.log($authStore.currentUser)
+        if($authStore.currentUser !== null && $authStore.currentUser.emailVerified) {
             goto('/dashboard')
         }
         else {
+            $authStore.currentUser = null;
             goto('/login')
         }
     }

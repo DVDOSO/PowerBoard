@@ -10,24 +10,27 @@ export const authStore = writable({
 
 export const authHandlers = {
     verifyEmail: async () => {
-        console.log(authStore.currentUser);
         sendEmailVerification(authStore.currentUser)
             .then(() => {
+                authStore.currentUser = null;
                 alert("Email verification sent");
+                window.location.href = '/signup';
             })
             .catch((error) => {
                 alert(error);
             });
         authStore.currentUser = null;
+        console.log(authStore.currentUser);
     },
     login: async (email, password) => {
+        console.log("login");
         signInWithEmailAndPassword(auth, email, password)
             .then(() => {
                 // Signed in 
                 authStore.currentUser = auth.currentUser;
                 if(!authStore.currentUser.emailVerified) {
                     alert('Email not verified');
-                    authStore.currentUser = auth.currentUser;
+                    window.location.href = '/login';
                 }
                 else {
                     window.location.href = '/dashboard';
@@ -65,6 +68,7 @@ export const authHandlers = {
             .then((userCredential) => {
                 authStore.currentUser = userCredential.user;
                 authHandlers.verifyEmail();
+                authStore.currentUser = null;
             })
             .catch((error) => {
                 if(error.code === 'auth/email-already-in-use') {
@@ -80,6 +84,8 @@ export const authHandlers = {
                     alert(error);
                 }
             });
+        authStore.currentUser = null;
+        console.log(authStore.currentUser);
     },
     logout: async () => {
         signOut(auth)

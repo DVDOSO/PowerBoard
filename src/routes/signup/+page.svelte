@@ -6,6 +6,8 @@
     let password = '';
     let confirmPassword = '';
 
+    $authStore.currentUser = null;
+
     async function handleSubmit() {
         if(!email || !password || !confirmPassword) {
             alert("Please fill out all fields");

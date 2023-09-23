@@ -5,6 +5,8 @@
     let email = '';
     let password = '';
 
+    $authStore.currentUser = null;
+
     async function handleSubmit() {
         //console.log(email, password);
 

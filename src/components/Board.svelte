@@ -15,7 +15,7 @@
         position: fixed;
     }
     .title {
-        font-size: 60px;
+        font-size: 3vw;
         margin-top: 2vh;
         margin-left: 2vw;
     }
