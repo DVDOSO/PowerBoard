@@ -1,8 +1,10 @@
 <script>
-    import { dbHandlers } from '../stores/dbStore.js';
+    import { dbStore, dbHandlers } from '../stores/dbStore.js';
+    import { authStore } from '../stores/authStore.js';
 
     async function addTask() {
-        dbHandlers.addTask('Task 1');
+        // console.log($authStore.currentUser);
+        dbHandlers.addTask($authStore.currentUser.uid, 'Task 1', 'Task 1 description', 0, 0, 'red', false, false);
     }
 </script>
 
@@ -11,7 +13,7 @@
     <div class='taskList'>
         <table>
             <tr><td>
-                <p class='taskText'>Task 1</p> <button class='deleteTask'>Delete</button>
+                <p class='taskText'>Task 1</p><button class='deleteTask'>Delete</button>
             </td></tr>
         </table>
         <button class='addTask' on:click={addTask}>Add Task</button>
