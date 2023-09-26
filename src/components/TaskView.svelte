@@ -1,17 +1,33 @@
 <script>
     import { dbStore, dbHandlers } from '../stores/dbStore.js';
     import { authStore } from '../stores/authStore.js';
+    import { database } from '../lib/firebase/firebase.client';
+    import { getDatabase, ref, set, onValue, push, remove, get } from "firebase/database";
 
     async function addTask() {
         // console.log($authStore.currentUser);
         dbHandlers.addTask($authStore.currentUser.uid, 'Task 1', 'Task 1 description', 0, 0, 'red', false, false);
+    }
+    // https://www.youtube.com/watch?v=JcVAb7Uqne0
+    function updateTable(){
+        let table = document.getElementsByClassName('taskTable');
+        const reference = ref(database, 'users/' + $authStore.currentUser.uid + '/tasks');
+        onValue(reference, (snapshot) => {
+            snapshot.forEach((childSnapshot) => {
+                let trow = document.createElement('tr');
+                let tdata = document.createElement('td');
+                tdata.innerHTML = '<p class="taskText">' + childSnapshot.val().name + '</p><button class="deleteTask" on:click={deleteTask}>Delete</button>';
+                trow.appendChild(tdata);
+                table.appendChild(trow);
+            });
+          });
     }
 </script>
 
 <div class='containerMain'>
     <h1>Tasks</h1>
     <div class='taskList'>
-        <table>
+        <table class='taskTable'>
             <tr><td>
                 <p class='taskText'>Task 1</p><button class='deleteTask'>Delete</button>
             </td></tr>
