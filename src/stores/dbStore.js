@@ -18,7 +18,7 @@ export const dbHandlers = {
             inProgress: pro,
             completed: com
         });
-        dbHandlers.readTasks(userId);
+        // dbHandlers.readTasks(userId);
     },
     readTasks: async (userId) => {
         dbStore.tasks = '';
