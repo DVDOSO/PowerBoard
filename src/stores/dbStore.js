@@ -18,22 +18,9 @@ export const dbHandlers = {
             inProgress: pro,
             completed: com
         });
-        // dbHandlers.readTasks(userId);
     },
-    readTasks: async (userId) => {
-        dbStore.tasks = '';
-        const reference = ref(database, 'users/' + userId + '/tasks');
-        onValue(reference, (snapshot) => {
-            snapshot.forEach((childSnapshot) => {
-                dbStore.tasks += "<tr><td><p class='taskText'>"
-                const childKey = childSnapshot.key;
-                const childData = childSnapshot.val();
-                dbStore.tasks += childData.task;
-                dbStore.tasks += "</p><button class='deleteTask'>Delete</button></td></tr>"
-                console.log(childData);
-            });
-            console.log('read', dbStore.tasks);
-          });
-        // console.log('read', dbStore.tasks);
-    }
+    removeTask: async (userId, taskId) => {
+        const reference = ref(database, 'users/' + userId + '/tasks/' + taskId);
+        await remove(reference);
+    },
 }

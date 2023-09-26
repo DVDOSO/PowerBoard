@@ -25,14 +25,18 @@
             snapshot.forEach((childSnapshot) => {
                 let trow = document.createElement('tr');
                 let tdata = document.createElement('td');
-                tdata.innerHTML = '<p class="taskText">' + childSnapshot.val().task + '</p><button class="deleteTask" on:click={deleteTask}>Delete</button>';
+                tdata.innerHTML = '<p class="taskText">' + childSnapshot.val().task + '</p><button class="editTask" on:click={editTask}>Edit</button><button class="editTask" on:click={deleteTask}>Remove</button>';
                 trow.appendChild(tdata);
                 table1[0].appendChild(trow);
                 console.log(childSnapshot.val().task)
             });
         });
         let style = document.createElement('style');
-        style.innerHTML = 'table, td {width: 100%; border: rgb(172, 172, 172) solid 1px;} table {border-collapse: collapse;} td {justify-content: space-between; padding: 1vh; height: 6vh; display: flex; align-items: center; background-color: rgba(255, 255, 255, 0.459);} .taskText {display: inline;} .deleteTask {display: inline; padding: 0.5vh;}';
+        style.innerHTML = 'table, td {width: 100%; border: rgb(172, 172, 172) solid 1px;}' 
+        + 'table {border-collapse: collapse;}'
+        + 'td {justify-content: space-between; padding: 1vh; height: 6vh; display: flex; align-items: center; background-color: rgba(255, 255, 255, 0.459);}'
+        + '.taskText {display: inline;}'
+        + '.editTask {display: inline; padding: 0.5vh;}';
         taskList[0].appendChild(style);
     }
 </script>
@@ -41,9 +45,6 @@
     <h1>Tasks</h1>
     <div class='taskList'>
         <table class='taskTable'>
-            <!-- <tr><td>
-                <p class='taskText'>Task 1</p><button class='deleteTask'>Delete</button>
-            </td></tr> -->
         </table>
         <button class='addTask' on:click={addTask}>Add Task</button>
     </div>
