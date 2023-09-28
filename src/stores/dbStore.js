@@ -5,6 +5,11 @@ import { writable } from 'svelte/store';
 export const dbStore = writable({
     tasks: '',
     currentEdit: '',
+    currentNameEdit: '',
+    currentDescEdit: '',
+    currentImpEdit: '',
+    currentUrgEdit: '',
+    currentColEdit: '',
 });
 
 export const dbHandlers = {

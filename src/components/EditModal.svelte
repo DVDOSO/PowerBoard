@@ -1,28 +1,26 @@
 <script>
     import { dbStore, dbHandlers } from '../stores/dbStore.js';
+    import { authStore } from '../stores/authStore.js';
+    import { database } from '../lib/firebase/firebase.client';
+    import { getDatabase, ref, set, onValue, push, remove, get, update } from "firebase/database";
 
     export let showEditModal;
     export let editTask;
     
     let dialog;
-    export let taskNameEdit = '';
-    export let taskDescriptionEdit = '';
-    export let importanceEdit = '';
-    export let urgencyEdit = '';
-    export let taskColorEdit = '';
 
     $: if (dialog && showEditModal) {
         dialog.showModal();
     }
 
     async function handleSubmit() {
-        if(!taskNameEdit || !taskDescriptionEdit || !importanceEdit || !urgencyEdit || !taskColorEdit) {
+        if(!$dbStore.currentNameEdit || !$dbStore.currentDescEdit || !$dbStore.currentImpEdit || !$dbStore.currentUrgEdit || !$dbStore.currentColEdit) {
             alert('Please fill out all fields');
             return;
         }
         try{
-            editTask(dbStore.currentEdit, taskNameEdit, taskDescriptionEdit, importanceEdit, urgencyEdit, taskColorEdit);
-            taskNameEdit = taskDescriptionEdit = importanceEdit = urgencyEdit = taskColorEdit = '';
+            editTask(dbStore.currentEdit, $dbStore.currentNameEdit, $dbStore.currentDescEdit, $dbStore.currentImpEdit, $dbStore.currentUrgEdit, $dbStore.currentColEdit);
+            $dbStore.currentNameEdit = $dbStore.currentDescEdit = $dbStore.currentImpEdit = $dbStore.currentUrgEdit = $dbStore.currentColEdit = '';
             dialog.close();
         }
         catch(err) {
@@ -43,11 +41,11 @@
         <!-- svelte-ignore a11y-autofocus -->
 		<button autofocus on:click={() => dialog.close()}>X</button>
 		<h2>Edit Task</h2>
-        <input bind:value={taskNameEdit} type='text' placeholder='Task Name'/>
-        <input bind:value={taskDescriptionEdit} type='text' placeholder='Task Description'/>
-        <input bind:value={importanceEdit} type='text' placeholder='Importance'/>
-        <input bind:value={urgencyEdit} type='text' placeholder='Urgency'/>
-        <input bind:value={taskColorEdit} type='text' placeholder='Task Color'/>
+        <input bind:value={$dbStore.currentNameEdit} type='text' placeholder='Task Name'/>
+        <input bind:value={$dbStore.currentDescEdit} type='text' placeholder='Task Description'/>
+        <input bind:value={$dbStore.currentImpEdit} type='text' placeholder='Importance'/>
+        <input bind:value={$dbStore.currentUrgEdit} type='text' placeholder='Urgency'/>
+        <input bind:value={$dbStore.currentColEdit} type='text' placeholder='Task Color'/>
         <div class='bottom'><button class='modalButton' on:click={handleSubmit}>Make Changes</button></div>
 	</div>
 </dialog>

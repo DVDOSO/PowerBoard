@@ -49,11 +49,18 @@
         updateTable();
     }
 
-    // Must update to make it so that the edit modal is populated with the current task info
     function editModal(taskId) {
-        showEditModal = true;
         dbStore.currentEdit = taskId;
-        console.log(dbStore.currentEdit);
+        
+        const reference = ref(database, 'users/' + $authStore.currentUser.uid + '/tasks/' + dbStore.currentEdit);
+        onValue(reference, (snapshot) => {
+            $dbStore.currentNameEdit = snapshot.val().task;
+            $dbStore.currentDescEdit = snapshot.val().description;
+            $dbStore.currentImpEdit = snapshot.val().importance;
+            $dbStore.currentUrgEdit = snapshot.val().urgency;
+            $dbStore.currentColEdit = snapshot.val().color;
+        });
+        showEditModal = true;
     }
 
     function editTask(taskId, taskName, taskDescription, importance, urgency, taskColor){
