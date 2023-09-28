@@ -5,7 +5,7 @@ importance and urgency sliders
 color choosing ui
 
 LEO:
-Auth UI
+get board working using sample JSON data file
 
 
 --PLAN--
@@ -24,9 +24,12 @@ daily agenda
 themes
 
 --DEVLOG--
-basic authentication logic (Sept 17, 2023)
-redid basic authentication + basic UI (Sept 19, 2023)
-email verification (Sept 20, 2023)
-forgot password email (Sept 21, 2023)
-basic dashboard UI (Sept 21, 2023)
-add tasks (Sept 27, 2023)
+we planned out the layout sketches (sept. 15, 2023) -everyone
+basic authentication logic (Sept 17, 2023) -david
+redid basic authentication + basic UI (Sept 19, 2023) -david
+email verification (Sept 20, 2023) -david
+forgot password email (Sept 21, 2023) -david
+basic dashboard UI (Sept 21, 2023) -david
+tried doing funny canvas stuff (it did not work) (Sept 27, 2023);
+add tasks (Sept 27, 2023) -david
+tried doing funny SVG stuff (which does work)(Sept 28, 2023) -leo
