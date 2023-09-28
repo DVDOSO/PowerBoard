@@ -12,14 +12,12 @@
         updateTable();
     });
 
-    async function addTask() {
-        dbHandlers.addTask($authStore.currentUser.uid, 'Task 1', 'Task 1 description', 0, 0, 'red', false, false);
+    async function addTask(taskName, taskDescription, importance, urgency, taskColor) {
+        dbHandlers.addTask($authStore.currentUser.uid, taskName, taskDescription, importance, urgency, taskColor, false, false);
         updateTable();
     }
 
-    // https://www.youtube.com/watch?v=JcVAb7Uqne0
-
-    function updateTable(){
+    async function updateTable(){
         let taskList = document.getElementsByClassName('taskList');
         let table1 = document.getElementsByClassName('taskTable');
         table1[0].innerHTML = '';
@@ -50,8 +48,7 @@
         <table class='taskTable'>
         </table>
         <button class='addTask' on:click={() => (showAddModal = true)}>Add Task</button>
-        <AddModal bind:showAddModal>
-            <button class='modalButton' slot='addButton' on:click={addTask}>Add Task</button>
+        <AddModal bind:showAddModal {addTask}>
         </AddModal>
     </div>
 </div>
@@ -82,9 +79,5 @@
         margin: 1vh;
         bottom: 1vh;
         right: 1vh;
-    }
-    .modalButton {
-        margin: 1vh;
-        padding: 1vh;
     }
 </style>

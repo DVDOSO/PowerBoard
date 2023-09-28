@@ -1,11 +1,33 @@
 <script>
     export let showAddModal;
+    export let addTask;
 
     let dialog;
+    let taskName = '';
+    let taskDescription = '';
+    let importance = '';
+    let urgency = '';
+    let taskColor = '';
 
     $: if (dialog && showAddModal) {
         dialog.showModal();
     }
+
+    async function handleSubmit() {
+        if(!taskName || !taskDescription || !importance || !urgency || !taskColor) {
+            alert('Please fill out all fields');
+            return;
+        }
+        try{
+            addTask(taskName, taskDescription, importance, urgency, taskColor);
+            taskName = taskDescription = importance = urgency = taskColor = '';
+            dialog.close();
+        }
+        catch(err) {
+            alert(err);
+        }
+    }
+
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-noninteractive-element-interactions -->
@@ -19,14 +41,12 @@
         <!-- svelte-ignore a11y-autofocus -->
 		<button autofocus on:click={() => dialog.close()}>X</button>
 		<h2>Add Task</h2>
-		<div>
-            <input type='text' placeholder='Task Name' id='taskName'>
-            <input type='text' placeholder='Task Description' id='taskDescription'>
-            <input type='text' placeholder='Importance' id='importance'>
-            <input type='text' placeholder='Urgency' id='urgency'>
-            <input type='text' placeholder='Task Color' id='taskColor'>
-        </div>
-        <slot name='addButton'/>
+        <input bind:value={taskName} type='text' placeholder='Task Name'/>
+        <input bind:value={taskDescription} type='text' placeholder='Task Description'/>
+        <input bind:value={importance} type='text' placeholder='Importance'/>
+        <input bind:value={urgency} type='text' placeholder='Urgency'/>
+        <input bind:value={taskColor} type='text' placeholder='Task Color'/>
+        <div class='bottom'><button class='modalButton' on:click={handleSubmit}>Add Task</button></div>
 	</div>
 </dialog>
 
@@ -88,4 +108,14 @@
         left: 62.5vw;
         top: 37vh;
 	}
+    .bottom{
+        display: flex;
+        justify-content: center;
+    }
+    .modalButton {
+        position: static;
+        margin: 1vh;
+        padding: 1vh;
+        
+    }
 </style>
