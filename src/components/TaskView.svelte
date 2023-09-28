@@ -4,6 +4,9 @@
     import { database } from '../lib/firebase/firebase.client';
     import { getDatabase, ref, set, onValue, push, remove, get, update } from "firebase/database";
     import { onMount } from 'svelte';
+    import AddModal from './AddModal.svelte';
+
+    let showAddModal = false;
 
     onMount(() => {
         updateTable();
@@ -25,18 +28,18 @@
             snapshot.forEach((childSnapshot) => {
                 let trow = document.createElement('tr');
                 let tdata = document.createElement('td');
-                tdata.innerHTML = '<p class="taskText">' + childSnapshot.val().task + '</p><button class="editTask" on:click={editTask}>Edit</button><button class="editTask" on:click={deleteTask}>Remove</button>';
+                tdata.innerHTML = '<p class="taskText">' + childSnapshot.val().task + '</p><div class="taskButtons"><button class="buttons" on:click={editTask}>Edit</button><button class="buttons" on:click={deleteTask}>Remove</button></div>';
                 trow.appendChild(tdata);
                 table1[0].appendChild(trow);
-                console.log(childSnapshot.val().task)
             });
         });
         let style = document.createElement('style');
         style.innerHTML = 'table, td {width: 100%; border: rgb(172, 172, 172) solid 1px;}' 
         + 'table {border-collapse: collapse;}'
-        + 'td {justify-content: space-between; padding: 1vh; height: 6vh; display: flex; align-items: center; background-color: rgba(255, 255, 255, 0.459);}'
+        + 'td {padding: 1vh; height: 6vh; display: flex; align-items: center; background-color: rgba(255, 255, 255, 0.459);}'
         + '.taskText {display: inline;}'
-        + '.editTask {display: inline; padding: 0.5vh;}';
+        + '.taskButtons {display: inline; margin-left:auto;}'
+        + '.buttons {padding: 0.5vh; margin: 0.5vh;}';
         taskList[0].appendChild(style);
     }
 </script>
@@ -46,7 +49,10 @@
     <div class='taskList'>
         <table class='taskTable'>
         </table>
-        <button class='addTask' on:click={addTask}>Add Task</button>
+        <button class='addTask' on:click={() => (showAddModal = true)}>Add Task</button>
+        <AddModal bind:showAddModal>
+            <button class='modalButton' slot='addButton' on:click={addTask}>Add Task</button>
+        </AddModal>
     </div>
 </div>
 
@@ -67,12 +73,18 @@
         border: 1px black solid;
         overflow: hidden;
         overflow-y: scroll;
+        position: relative;
     }
     .addTask {
         position: sticky;
+        float: right;
         padding: 1vh;
         margin: 1vh;
         bottom: 1vh;
         right: 1vh;
+    }
+    .modalButton {
+        margin: 1vh;
+        padding: 1vh;
     }
 </style>
