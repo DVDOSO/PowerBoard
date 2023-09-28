@@ -57,6 +57,7 @@
     
     /* Temporary */
     h2 {
+        font-size: 2vw;
         margin-left: 2vw;
     }
 </style>
