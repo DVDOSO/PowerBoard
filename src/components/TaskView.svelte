@@ -8,16 +8,17 @@
 
     let showAddModal = false;
 
-    onMount(() => {
-        updateTable();
-    });
-
-    async function addTask(taskName, taskDescription, importance, urgency, taskColor) {
+    function addTask(taskName, taskDescription, importance, urgency, taskColor) {
         dbHandlers.addTask($authStore.currentUser.uid, taskName, taskDescription, importance, urgency, taskColor, false, false);
         updateTable();
     }
 
-    async function updateTable(){
+    function deleteTask(taskId) {
+        dbHandlers.removeTask($authStore.currentUser.uid, taskId);
+        updateTable();
+    }
+
+    function updateTable(){
         let taskList = document.getElementsByClassName('taskList');
         let table1 = document.getElementsByClassName('taskTable');
         table1[0].innerHTML = '';
@@ -26,7 +27,8 @@
             snapshot.forEach((childSnapshot) => {
                 let trow = document.createElement('tr');
                 let tdata = document.createElement('td');
-                tdata.innerHTML = '<p class="taskText">' + childSnapshot.val().task + '</p><div class="taskButtons"><button class="buttons" on:click={editTask}>Edit</button><button class="buttons" on:click={deleteTask}>Remove</button></div>';
+                tdata.innerHTML = '<p class="taskText">' + childSnapshot.val().task + '</p><div class="taskButtons"><button class="buttons" on:click={editTask}>Edit</button>'
+                    +'<button class="delButtons" id="'+ childSnapshot.key +'">Remove</button></div>';
                 trow.appendChild(tdata);
                 table1[0].appendChild(trow);
             });
@@ -37,9 +39,20 @@
         + 'td {padding: 1vh; height: 6vh; display: flex; align-items: center; background-color: rgba(255, 255, 255, 0.459);}'
         + '.taskText {display: inline;}'
         + '.taskButtons {display: inline; margin-left:auto;}'
-        + '.buttons {padding: 0.5vh; margin: 0.5vh;}';
+        + '.buttons {padding: 0.5vh; margin: 0.5vh;}'
+        + '.delButtons {padding: 0.5vh; margin: 0.5vh;}';
         taskList[0].appendChild(style);
+
+        let deleteButtons = document.getElementsByClassName('delButtons');
+        for (let i = 0; i < deleteButtons.length; i++) {
+            deleteButtons[i].addEventListener('click', () => {
+                deleteTask(deleteButtons[i].id);
+            });
+        }
     }
+    onMount(() => {
+        updateTable();
+    });
 </script>
 
 <div class='containerMain'>
