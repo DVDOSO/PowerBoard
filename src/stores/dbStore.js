@@ -4,6 +4,7 @@ import { writable } from 'svelte/store';
 
 export const dbStore = writable({
     tasks: '',
+    currentEdit: '',
 });
 
 export const dbHandlers = {
@@ -23,4 +24,16 @@ export const dbHandlers = {
         const reference = ref(database, 'users/' + userId + '/tasks/' + taskId);
         await remove(reference);
     },
+    editTask: async (userId, taskId, task, desc, imp, urg, col, pro, com) => {
+        const reference = ref(database, 'users/' + userId + '/tasks/' + taskId);
+        await set(reference, {
+            task: task,
+            description: desc,
+            importance: imp,
+            urgency: urg,
+            color: col,
+            inProgress: pro,
+            completed: com
+        });
+    }
 }

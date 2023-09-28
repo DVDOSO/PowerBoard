@@ -5,11 +5,60 @@
     import { getDatabase, ref, set, onValue, push, remove, get, update } from "firebase/database";
     import { onMount } from 'svelte';
     import AddModal from './AddModal.svelte';
+    import EditModal from './EditModal.svelte';
 
     let showAddModal = false;
+    let showEditModal = false;
+
+    onMount(() => {
+        // Dummy task
+        addTask('!!@@##', 'Dummy Task', '1', '1', 'red')
+
+        // Remove dummy task
+        const reference = ref(database, 'users/' + $authStore.currentUser.uid + '/tasks');
+        onValue(reference, (snapshot) => {
+            snapshot.forEach((childSnapshot) => {  
+                if(childSnapshot.val().task == '!!@@##') {
+                    deleteTask(childSnapshot.key);
+                }
+            });
+        });
+
+        updateTable();
+    });
+
+    function addButtonListeners() {
+        let deleteButtons = document.getElementsByClassName('delButtons');
+        for (let i = 0; i < deleteButtons.length; i++) {
+            deleteButtons[i].addEventListener('click', () => {
+                deleteTask(deleteButtons[i].id);
+            });
+        }
+        let editButtons = document.getElementsByClassName('editButtons');
+        for (let i = 0; i < editButtons.length; i++) {
+            editButtons[i].addEventListener('click', () => {
+                editModal(editButtons[i].id);
+            });
+        }
+        // console.log(deleteButtons);
+        // console.log(editButtons);
+    }
 
     function addTask(taskName, taskDescription, importance, urgency, taskColor) {
         dbHandlers.addTask($authStore.currentUser.uid, taskName, taskDescription, importance, urgency, taskColor, false, false);
+        updateTable();
+    }
+
+    // Must update to make it so that the edit modal is populated with the current task info
+    function editModal(taskId) {
+        showEditModal = true;
+        dbStore.currentEdit = taskId;
+        console.log(dbStore.currentEdit);
+    }
+
+    function editTask(taskId, taskName, taskDescription, importance, urgency, taskColor){
+        console.log("editTask()");
+        dbHandlers.editTask($authStore.currentUser.uid, taskId, taskName, taskDescription, importance, urgency, taskColor, false, false);
         updateTable();
     }
 
@@ -18,7 +67,7 @@
         updateTable();
     }
 
-    function updateTable(){
+    function updateTable() {
         let taskList = document.getElementsByClassName('taskList');
         let table1 = document.getElementsByClassName('taskTable');
         table1[0].innerHTML = '';
@@ -27,10 +76,12 @@
             snapshot.forEach((childSnapshot) => {
                 let trow = document.createElement('tr');
                 let tdata = document.createElement('td');
-                tdata.innerHTML = '<p class="taskText">' + childSnapshot.val().task + '</p><div class="taskButtons"><button class="buttons" on:click={editTask}>Edit</button>'
+                tdata.innerHTML = '<p class="taskText">' + childSnapshot.val().task + '</p><div class="taskButtons">'
+                    +'<button class="editButtons" id="'+ childSnapshot.key +'">Edit</button>'
                     +'<button class="delButtons" id="'+ childSnapshot.key +'">Remove</button></div>';
                 trow.appendChild(tdata);
                 table1[0].appendChild(trow);
+
             });
         });
         let style = document.createElement('style');
@@ -39,20 +90,12 @@
         + 'td {padding: 1vh; height: 6vh; display: flex; align-items: center; background-color: rgba(255, 255, 255, 0.459);}'
         + '.taskText {display: inline;}'
         + '.taskButtons {display: inline; margin-left:auto;}'
-        + '.buttons {padding: 0.5vh; margin: 0.5vh;}'
+        + '.editButtons {padding: 0.5vh; margin: 0.5vh;}'
         + '.delButtons {padding: 0.5vh; margin: 0.5vh;}';
         taskList[0].appendChild(style);
 
-        let deleteButtons = document.getElementsByClassName('delButtons');
-        for (let i = 0; i < deleteButtons.length; i++) {
-            deleteButtons[i].addEventListener('click', () => {
-                deleteTask(deleteButtons[i].id);
-            });
-        }
+        addButtonListeners();
     }
-    onMount(() => {
-        updateTable();
-    });
 </script>
 
 <div class='containerMain'>
@@ -61,8 +104,8 @@
         <table class='taskTable'>
         </table>
         <button class='addTask' on:click={() => (showAddModal = true)}>Add Task</button>
-        <AddModal bind:showAddModal {addTask}>
-        </AddModal>
+        <AddModal bind:showAddModal {addTask}/>
+        <EditModal bind:showEditModal {editTask}/>
     </div>
 </div>
 
