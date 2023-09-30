@@ -1,35 +1,34 @@
---TODO--
+--CURRENT TASKS--
 DAVID:
-edit and remove tasks
-importance and urgency sliders
-color choosing ui
+
 
 LEO:
 get board working using sample JSON data file
 
 
---PLAN--
-1.0
-authentication
-2d plane to view tasks
-    hover over points to edit, remove, etc
-    colour changing points depending on progress
-    create edit delete
-    ui to view finished tasks
 
-2.0
-multiple task boards
-suggest next task to complete
-daily agenda
-themes
+
+--TODO--
+importance and urgency sliders
+color choosing ui
+board visual component
+board sidebar
+
+auth ui
+dashboard ui
+settings component/route
+
+
 
 --DEVLOG--
-we planned out the layout sketches (sept. 15, 2023) -everyone
+we planned out the layout sketches (Sept 15, 2023) -everyone
 basic authentication logic (Sept 17, 2023) -david
 redid basic authentication + basic UI (Sept 19, 2023) -david
 email verification (Sept 20, 2023) -david
 forgot password email (Sept 21, 2023) -david
 basic dashboard UI (Sept 21, 2023) -david
-tried doing funny canvas stuff (it did not work) (Sept 27, 2023);
-add tasks (Sept 27, 2023) -david
+added ability to add, remove tasks to database (Sept 25, 2023) -david
+tried doing funny canvas stuff (it did not work) (Sept 27, 2023) -leo
+displayed add tasks in real time (Sept 27, 2023) -david
 tried doing funny SVG stuff (which does work)(Sept 28, 2023) -leo
+displayed edit, delete tasks in real time (Sept 27, 2023) -david
