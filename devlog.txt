@@ -1,5 +1,8 @@
 --CURRENT TASKS--
 DAVID:
+importance and urgency sliders
+color choosing ui
+overall ui
 
 
 LEO:
@@ -9,13 +12,6 @@ get board working using sample JSON data file
 
 
 --TODO--
-importance and urgency sliders
-color choosing ui
-board visual component
-board sidebar
-
-auth ui
-dashboard ui
 settings component/route
 
 
