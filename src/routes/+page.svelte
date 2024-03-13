@@ -1,3 +1,5 @@
+<!--Not logged in main page-->
+
 <script>
 	import NavbarGuest from '../components/NavbarGuest.svelte';
     import { goto } from '$app/navigation';

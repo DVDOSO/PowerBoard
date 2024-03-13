@@ -9,9 +9,9 @@
         background-color: rgb(173, 255, 152);
         height: 93vh;
         overflow: hidden;
-        margin-left: 56vw;
+        margin-left: 44vw;
         margin-top: 7vh;
-        width: 44vw;
+        width: 56vw;
         position: fixed;
     }
     .title {

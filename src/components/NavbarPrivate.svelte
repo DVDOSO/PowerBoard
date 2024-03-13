@@ -1,9 +1,6 @@
 <script>
     import { goto } from '$app/navigation';
     import { authHandlers, authStore } from '../stores/authStore.js';
-	import Sidebar from './Sidebar.svelte';
-
-    let sidebar = false;
 
     async function routeHome() {
         goto('/')
@@ -21,9 +18,6 @@
         </div>
     </ul>
 </div>
-{#if sidebar}
-    <Sidebar/>
-{/if}
 
 <style>
     .containerNav {
