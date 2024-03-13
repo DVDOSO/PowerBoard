@@ -12,7 +12,10 @@ get board working using sample JSON data file
 
 
 --TODO--
-settings component/route
+settings
+add boards
+board themes?
+about page*
 
 
 

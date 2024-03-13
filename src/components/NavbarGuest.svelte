@@ -26,6 +26,11 @@
     }
 </script>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+
 <div class='containerNav'>
     <ul>
         <li><button on:click={routeHome}>Home</button></li>
@@ -40,7 +45,7 @@
 <style>
     .containerNav {
         padding: 10px;
-        background-color:rgb(144, 233, 255);
+        /* background-color:rgb(144, 233, 255); */
         position: fixed;
         top: 0;
         width: 100%;
@@ -50,9 +55,10 @@
         display: inline;
     }
     button {
+        font-family: "Mulish", sans-serif;
         background-color: transparent;
-        border: black solid 1px;
-        color: black;
+        border: transparent;
+        color: rgb(255, 255, 255);
         padding: 1vh;
         margin-right: 0.5vh;
         margin-left: 0.5vh;
@@ -63,8 +69,7 @@
         transition-duration: 0.4s;
     }
     button:hover {
-        background-color: rgb(154, 181, 255);
-        color: white;
+        color: rgb(0, 22, 135);
     }
     .auth {
         float: right;

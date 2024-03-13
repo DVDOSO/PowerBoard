@@ -13,7 +13,6 @@
     <ul>
         <li><button on:click={routeHome}>Home</button></li>
         <div class='auth'>
-            <li><button>Settings</button></li>
             <li><button on:click={authHandlers.logout}>Log Out</button></li>
         </div>
     </ul>
