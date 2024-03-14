@@ -12,6 +12,10 @@ export const dbStore = writable({
     currentColEdit: '',
 });
 
+export const dataStore = writable({
+    tasks: '',
+});
+
 export const dbHandlers = {
     addTask: async (userId, task, desc, imp, urg, col, pro, com) => {
         const reference = ref(database, 'users/' + userId + '/tasks');
@@ -40,5 +44,15 @@ export const dbHandlers = {
             inProgress: pro,
             completed: com
         });
-    }
+    },
+    getTasks: async (userId) => {
+        const reference = ref(database, 'users/' + userId + '/tasks');
+        onValue(reference, (snapshot) => {
+            const data = snapshot.val();
+            dataStore.update((store) => {
+                store.tasks = data;
+                return store;
+            });
+        });
+    },
 }

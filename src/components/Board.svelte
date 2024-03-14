@@ -1,41 +1,45 @@
 <script>
     import { onMount } from 'svelte';
+    import { dbStore, dbHandlers, dataStore } from '../stores/dbStore';
+    import { database } from '../lib/firebase/firebase.client';
+    import { getDatabase, ref, set, onValue, push, remove, get, update } from "firebase/database";
+    import { authStore } from '../stores/authStore.js';
+	import { derived, writable } from 'svelte/store';
 
     let hoveredDotIndex = null;
-    let dots = [];
 
-    for(let i = 0; i < 10; i++){
-        dots.push({
-            id: i,
-            cx: Math.random() * 100,
-            cy: Math.random() * 100,
-            r: 1,
-            fill: 'black'
-        })
-    }
+    const dots = derived(dataStore, $dataStore => {
+        if ($dataStore && $dataStore.tasks) {
+            return Object.values($dataStore.tasks).map(task => ({
+                id: task.task,
+                cx: task.urgency * 10,
+                cy: (10 - task.importance) * 10,
+                r: 1,
+                fill: task.color
+            }));
+        } else {
+            return [];
+        }
+    })
 
-    function handleMouseEnter(dotIndex){
-        hoveredDotIndex = dotIndex;
-        dots[dotIndex].fill = 'red';
-    }
-
-    function handleMouseLeave(dotIndex){
-        hoveredDotIndex = null;
-        dots[dotIndex].fill = 'black';
-    }
+    onMount(() => {
+        dbHandlers.getTasks($authStore.currentUser.uid);
+        console.log("mounted")
+    })
 </script>
 
 <div class='containerMain'>
     <div class='plot'>
         <svg width="100%" height="100%" viewBox="0 0 100 100">
-            {#each dots as dot (dot.id)}
+            {#each $dots as dot (dot.id)}
                 <circle
                     cx={dot.cx}
                     cy={dot.cy}
                     r={dot.r}
                     fill={dot.fill}
-                    on:mouseenter={() => handleMouseEnter(dot.id)}
-                    on:mouseleave={() => handleMouseLeave(dot.id)}
+                    stroke-width=0.05vh
+                    onmouseover="evt.target.setAttribute('stroke', 'white');"
+                    onmouseout="evt.target.setAttribute('stroke', 'none');"
                 />
             {/each}
         </svg>
