@@ -17,13 +17,10 @@
         <NavbarPrivate/>
         <Board/>
         <div class='containerMain'>
-            <h1 class='title'>
-                Board Name
-            </h1>
-            <h2>{email}</h2>
             <div id='taskView'>
                 <TaskView/>
             </div>
+            <h2>{email}</h2>
         </div>
     </div>
 {:else}
