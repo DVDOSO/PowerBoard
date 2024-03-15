@@ -92,13 +92,15 @@
             });
         });
         let style = document.createElement('style');
-        style.innerHTML = 'table, td {width: 100%; border: rgb(172, 172, 172) solid 1px;}' 
+        style.innerHTML = 'table, td {width: 100%; border-bottom: rgba(255,255,255,0.5) solid 1px;}' 
         + 'table {border-collapse: collapse;}'
-        + 'td {padding: 1vh; height: 6vh; display: flex; align-items: center; background-color: rgba(255, 255, 255, 0.459);}'
-        + '.taskText {display: inline;}'
+        + 'td {padding: 1vh; height: 6vh; display: flex; align-items: center;}'
+        + '.taskText {display: inline; font-family: "Mulish", sans-serif; font-size: 2.5vh; margin-right: 2vw; color: white;}'
         + '.taskButtons {display: inline; margin-left:auto;}'
-        + '.editButtons {padding: 0.5vh; margin: 0.5vh;}'
-        + '.delButtons {padding: 0.5vh; margin: 0.5vh;}';
+        + '.editButtons {padding: 0.5vh; margin: 0.5vh; box-shadow: 0 0 1vh 0 rgba(0,0,0,0.7); font-family: "Mulish", sans-serif; font-size: 1.5vh; color: white; border-radius:25%; background: rgba(255, 221, 48, 0.5); border: none; transition-duration: 0.2s;}'
+        + '.delButtons {padding: 0.5vh; margin: 0.5vh; box-shadow: 0 0 1vh 0 rgba(0,0,0,0.7);font-family: "Mulish", sans-serif; font-size: 1.5vh; color: white; border-radius:25%; background: rgba(255, 48, 48, 0.5); border: none; transition-duration: 0.2s;}'
+        + '.editButtons:hover {box-shadow: 0 0 1vh 0 rgba(0,0,0,1); background: rgba(255, 221, 48, 0.8);}'
+        + '.delButtons:hover {box-shadow: 0 0 1vh 0 rgba(0,0,0,1); background: rgba(255, 48, 48, 0.8);}';
         taskList[0].appendChild(style);
 
         addButtonListeners();
@@ -111,10 +113,10 @@
 
 <div class='containerMain'>
     <h1 class='title'>Tasks</h1>
+    <button class='addTask' on:click={() => (showAddModal = true)}>+</button>
     <div class='taskList'>
         <table class='taskTable'>
         </table>
-        <button class='addTask' on:click={() => (showAddModal = true)}>Add Task</button>
         <AddModal bind:showAddModal {addTask}/>
         <EditModal bind:showEditModal {editTask}/>
     </div>
@@ -129,26 +131,47 @@
     }
     .taskList {
         margin-top: 2vh;
-        background-color: rgba(255, 255, 255, 0.452);
         width: 75%;
         display: inline-block;
         border-radius: 5px;
         height: 50vh;
-        border: 1px black solid;
         overflow: hidden;
-        overflow-y: scroll;
+        overflow-y: auto;
         position: relative;
     }
     .addTask {
-        position: sticky;
-        float: right;
-        padding: 1vh;
-        margin: 1vh;
-        bottom: 1vh;
-        right: 1vh;
+        position: absolute;
+        margin-left: 10vw;
+        margin-top: -4.2vh;
+        z-index: 5;
+        color: white;
+        border-radius: 50%;
+        width: 4.2vh;
+        height: 4.2vh;
+        background: linear-gradient(-45deg, #e73c7e, #23a6d5);
+        border: none;
+        font-size: 4vh;
+        box-shadow: 0 0 1vh 0 rgba(0,0,0,0.7);
+        transition-duration: 0.4s;
+    }
+    .addTask:hover {
+        box-shadow: 0 0 1vh 0 rgba(0,0,0,1);
+        background: linear-gradient(-45deg, #ee7752, #23d5ab);
     }
     .title{
         font-family: 'Mulish', sans-serif;
         color: white;
+    }
+    ::-webkit-scrollbar {
+        width: 0.5vw;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.459);
+    border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.8); 
     }
 </style>

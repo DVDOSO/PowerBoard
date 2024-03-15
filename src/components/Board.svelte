@@ -16,7 +16,7 @@
                 desc: task.description,
                 cx: task.urgency * 10,
                 cy: (10 - task.importance) * 10,
-                r: 1,
+                r: 2,
                 fill: task.color
             }));
         } else {
@@ -56,6 +56,8 @@
         <div id='goals'>Goals</div>
         <div id='distractions'>Distractions</div>
         <div id='interruptions'>Interruptions</div>
+        <div id='importance'>Importance</div>
+        <div id='urgency'>Urgency</div>
         <svg height="100%" width="100%" viewBox="0 0 100 100">
             {#each $dots as dot (dot.id)}
                 <!-- svelte-ignore a11y-no-static-element-interactions -->
@@ -198,4 +200,27 @@
         color: rgba(255, 255, 255, 0.4);
         z-index: -1;
     }
+    #importance{
+        position: absolute;
+        margin-top: 2vh;
+        margin-left: 15.8vw;
+        font-size: 3vh;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: rgba(255, 255, 255, 0.4);
+        z-index: -1;
+    }
+    #urgency{
+        position: absolute;
+        margin-top: 33vh;
+        margin-left: 33vw;
+        font-size: 3vh;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: rgba(255, 255, 255, 0.4);
+        z-index: -1;
+    
+    }
+    circle {
+        filter: drop-shadow(0px 0px 1px rgb(255, 255, 255));
+    }
+    
 </style>
