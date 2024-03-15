@@ -44,11 +44,9 @@
         background-color: transparent;
         border: black solid 1px;
         color: black;
-        padding: 10px;
-        margin-right: 5px;
-        margin-left: 5px;
+        padding: 0.5%;
         list-style-type: none;
-        font-size: 20px;
+        font-size: 100%;
         cursor: pointer;
         border-radius: 5px;
         transition-duration: 0.4s;

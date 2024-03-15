@@ -30,6 +30,10 @@
 
 </script>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
 <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-noninteractive-element-interactions -->
 <dialog
 	bind:this={dialog}
@@ -40,7 +44,7 @@
 	<div on:click|stopPropagation>
         <!-- svelte-ignore a11y-autofocus -->
 		<button autofocus on:click={() => dialog.close()}>X</button>
-		<h2>Add Task</h2>
+		<h2 class='title'>Add Task</h2>
         <input bind:value={taskName} type='text' placeholder='Task Name'/>
         <input bind:value={taskDescription} type='text' placeholder='Task Description'/>
         <input bind:value={importance} type='text' placeholder='Importance'/>
@@ -51,8 +55,9 @@
 </dialog>
 
 <style>
-    h2 {
+    .title {
         margin-bottom: 1vh;
+        font-family: 'Mulish', sans-serif;
     }
     input {
         margin: 0.5vh;
@@ -70,9 +75,10 @@
         margin-top: -15vh;
         margin-left: -30vh;
         overflow: hidden;
+        background-color: rgba(255, 255, 255, 0.8);
     }
 	dialog::backdrop {
-		background: rgba(0, 0, 0, 0.457);
+		background: rgba(0, 0, 0, 0.228);
 	}
 	dialog > div {
         padding: 4vh;

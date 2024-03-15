@@ -98,9 +98,9 @@
         + '.taskText {display: inline; font-family: "Mulish", sans-serif; font-size: 2.5vh; margin-right: 2vw; color: white;}'
         + '.taskButtons {display: inline; margin-left:auto;}'
         + '.editButtons {padding: 0.5vh; margin: 0.5vh; box-shadow: 0 0 1vh 0 rgba(0,0,0,0.7); font-family: "Mulish", sans-serif; font-size: 1.5vh; color: white; border-radius:25%; background: rgba(255, 221, 48, 0.5); border: none; transition-duration: 0.2s;}'
-        + '.delButtons {padding: 0.5vh; margin: 0.5vh; box-shadow: 0 0 1vh 0 rgba(0,0,0,0.7);font-family: "Mulish", sans-serif; font-size: 1.5vh; color: white; border-radius:25%; background: rgba(255, 48, 48, 0.5); border: none; transition-duration: 0.2s;}'
-        + '.editButtons:hover {box-shadow: 0 0 1vh 0 rgba(0,0,0,1); background: rgba(255, 221, 48, 0.8);}'
-        + '.delButtons:hover {box-shadow: 0 0 1vh 0 rgba(0,0,0,1); background: rgba(255, 48, 48, 0.8);}';
+        + '.delButtons {padding: 0.5vh; margin: 0.5vh; box-shadow: 0 0 1vh 0 rgba(0,0,0,0.7);font-family: "Mulish", sans-serif; font-size: 1.5vh; color: white; border-radius:12%; background: rgba(255, 48, 48, 0.5); border: none; transition-duration: 0.2s;}'
+        + '.editButtons:hover {box-shadow: 0 0 1vh 0 rgba(0,0,0,0.8); background: rgba(255, 221, 48, 0.7);}'
+        + '.delButtons:hover {box-shadow: 0 0 1vh 0 rgba(0,0,0,0.8); background: rgba(255, 48, 48, 0.7);}';
         taskList[0].appendChild(style);
 
         addButtonListeners();
@@ -155,8 +155,8 @@
         transition-duration: 0.4s;
     }
     .addTask:hover {
-        box-shadow: 0 0 1vh 0 rgba(0,0,0,1);
-        background: linear-gradient(-45deg, #ee7752, #23d5ab);
+        box-shadow: 0 0 2vh 0 rgba(0,0,0,0.9);
+        background: linear-gradient(-45deg, #ff2377, #11befc);
     }
     .title{
         font-family: 'Mulish', sans-serif;

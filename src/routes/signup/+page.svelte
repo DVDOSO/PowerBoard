@@ -71,7 +71,7 @@
     .containerMain {
         text-align: center;
         margin: 0;
-        padding: 10px;
+        padding: 1vmin;
         width: 100%;
     }
     .box{
@@ -85,7 +85,7 @@
         pointer-events: none;
     }
     .title {
-        font-size: 40px;
+        font-size: 4vmin;
         margin-top: 30vh;
         margin-bottom: 3vh;
         font-family: "Mulish", sans-serif;
@@ -94,14 +94,16 @@
     label {
         display: block;
         justify-content: center;
-        margin: 1vh;
+        margin-top: 1vh;
+        margin-bottom: 1vh;
     }
     input {
         padding: 1vh;
-        width: 15vw;
+        width: 30vmin;
         border-radius: 5px;
         border: white solid 1px;
         font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        height: 4vmin;
     }
     input:focus {
         outline-color: rgb(0, 22, 135);
@@ -114,11 +116,9 @@
         background-color: transparent;
         border: rgb(255, 255, 255) solid 1px;
         color: rgb(255, 255, 255);
-        padding: 10px;
-        margin-right: 5px;
-        margin-left: 5px;
+        padding: 1vmin;
         list-style-type: none;
-        font-size: 15px;
+        font-size: 2vmin;
         cursor: pointer;
         border-radius: 5px;
         transition-duration: 0.4s;
@@ -134,12 +134,14 @@
         display: inline;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         color: white;
+        font-size: 1.6vmin;
     }
     a {
         margin-top: 2vh;
         display: inline-block;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         text-decoration: none;
+        font-size: 1.6vmin;
     }
     @keyframes gradient {
         0% {
