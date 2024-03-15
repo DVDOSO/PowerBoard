@@ -10,6 +10,8 @@ overall ui
 LEO:
 
 --TODO--
+fix wordwrapping for tasks
+
 settings
 add boards
 board themes?

@@ -71,7 +71,7 @@
         font-family: 'Ubuntu', sans-serif;
         font-weight: 400;
         color: white;
-        font-size: 4vh;
+        font-size: 2vw;
         word-wrap: break-word;
         margin-top: 7vh;
     }

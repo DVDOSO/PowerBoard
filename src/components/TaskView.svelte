@@ -95,10 +95,10 @@
         style.innerHTML = 'table, td {width: 100%; border-bottom: rgba(255,255,255,0.5) solid 1px;}' 
         + 'table {border-collapse: collapse;}'
         + 'td {padding: 1vh; height: 6vh; display: flex; align-items: center;}'
-        + '.taskText {display: inline; font-family: "Mulish", sans-serif; font-size: 2.5vh; margin-right: 2vw; color: white;}'
+        + '.taskText {display: inline; font-family: "Mulish", sans-serif; font-size: 1.1vmax; margin-right: 2vw; color: white;}'
         + '.taskButtons {display: inline; margin-left:auto;}'
-        + '.editButtons {padding: 0.5vh; margin: 0.5vh; box-shadow: 0 0 1vh 0 rgba(0,0,0,0.7); font-family: "Mulish", sans-serif; font-size: 1.5vh; color: white; border-radius:25%; background: rgba(255, 221, 48, 0.5); border: none; transition-duration: 0.2s;}'
-        + '.delButtons {padding: 0.5vh; margin: 0.5vh; box-shadow: 0 0 1vh 0 rgba(0,0,0,0.7);font-family: "Mulish", sans-serif; font-size: 1.5vh; color: white; border-radius:12%; background: rgba(255, 48, 48, 0.5); border: none; transition-duration: 0.2s;}'
+        + '.editButtons {padding: 0.5vh; margin: 0.5vh; box-shadow: 0 0 1vh 0 rgba(0,0,0,0.7); font-family: "Mulish", sans-serif; font-size: 0.7vmax; color: white; border-radius:25%; background: rgba(255, 221, 48, 0.5); border: none; transition-duration: 0.2s;}'
+        + '.delButtons {padding: 0.5vh; margin: 0.5vh; box-shadow: 0 0 1vh 0 rgba(0,0,0,0.7);font-family: "Mulish", sans-serif; font-size: 0.7vmax; color: white; border-radius:12%; background: rgba(255, 48, 48, 0.5); border: none; transition-duration: 0.2s;}'
         + '.editButtons:hover {box-shadow: 0 0 1vh 0 rgba(0,0,0,0.8); background: rgba(255, 221, 48, 0.7);}'
         + '.delButtons:hover {box-shadow: 0 0 1vh 0 rgba(0,0,0,0.8); background: rgba(255, 48, 48, 0.7);}';
         taskList[0].appendChild(style);
@@ -125,12 +125,10 @@
 <style>
     .containerMain {
         padding-top: 4vh;
-        /* background-color: rgb(177, 252, 181); */
-        text-align: center;
         height: 73vh;
     }
     .taskList {
-        margin-top: 2vh;
+        margin-top: 7vh;
         width: 75%;
         display: inline-block;
         border-radius: 5px;
@@ -139,10 +137,18 @@
         overflow-y: auto;
         position: relative;
     }
+    .title{
+        font-family: 'Mulish', sans-serif;
+        color: white;
+        font-size: 3.5vmin;
+        position: absolute;
+        margin-left: 5vw;
+    }
     .addTask {
         position: absolute;
-        margin-left: 10vw;
-        margin-top: -4.2vh;
+        float: right;
+        margin-left: 12vmin;
+        margin-top: 0.3vh;
         z-index: 5;
         color: white;
         border-radius: 50%;
@@ -157,10 +163,6 @@
     .addTask:hover {
         box-shadow: 0 0 2vh 0 rgba(0,0,0,0.9);
         background: linear-gradient(-45deg, #ff2377, #11befc);
-    }
-    .title{
-        font-family: 'Mulish', sans-serif;
-        color: white;
     }
     ::-webkit-scrollbar {
         width: 0.5vw;
