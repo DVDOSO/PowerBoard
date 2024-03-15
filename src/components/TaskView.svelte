@@ -105,8 +105,12 @@
     }
 </script>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
 <div class='containerMain'>
-    <h1>Tasks</h1>
+    <h1 class='title'>Tasks</h1>
     <div class='taskList'>
         <table class='taskTable'>
         </table>
@@ -118,10 +122,10 @@
 
 <style>
     .containerMain {
-        padding-top: 6vh;
-        background-color: rgb(177, 252, 181);
+        padding-top: 4vh;
+        /* background-color: rgb(177, 252, 181); */
         text-align: center;
-        height: 78vh;
+        height: 73vh;
     }
     .taskList {
         margin-top: 2vh;
@@ -142,5 +146,9 @@
         margin: 1vh;
         bottom: 1vh;
         right: 1vh;
+    }
+    .title{
+        font-family: 'Mulish', sans-serif;
+        color: white;
     }
 </style>
