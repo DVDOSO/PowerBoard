@@ -92,12 +92,13 @@
         position: fixed;
     }
     .plot {
-        height: 80vh;
-        width: 38.3vw;
-        margin-top: 6.8vh;
+        height: 38.3vmax;
+        width: 38.3vmax;
         position: fixed;
         background-color: rgba(255, 255, 255, 0.459);
         border-radius: 2vh;
+        top: 50%;
+        transform: translateY(-50%);
     }
     svg {
         padding: 2vh;
@@ -105,9 +106,8 @@
     .side{
         border-left: 6px dotted rgba(255, 255, 255, 0.4);
         position: fixed;
-        height: 60vh;
-        width: 15vw;
-        margin-top: 17vh;
+        height: 30vmax;
+        width: 15vmax;
         margin-left: 38.3vw;
         word-wrap: break-word;
         padding: 1.5vh;
@@ -115,34 +115,37 @@
         border-top-right-radius: 2vh;
         border-bottom-right-radius: 2vh;
         color: white;
+        top: 50%;
+        transform: translateY(-50%);
     }
     .taskTitle {
         font-family: 'Mulish', sans-serif;
-        font-size: 3.5vh;
+        font-size: 1.7vmax;
         font-weight: 700;
         padding-bottom: 1vh;
         line-height: 1.2;
     }
     .taskDesc {
-        font-size: 2.5vh;
+        font-size: 1.2vmax;
         font-weight: 400;
         font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         line-height: 1.2;
     }
     .horizontalArrow {
         position: absolute;
-        margin-top: 39.6vh;
-        margin-left: 4.2vw;
-        width: 30vw;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 30vmax;
         z-index: -1;
     }
     .verticalArrow {
         position: absolute;
-        margin-top: 39.6vh;
-        margin-left: 4.2vw;
-        width: 30vw;
-        z-index: -1;
         rotate: 90deg;
+        top: 50%;
+        left: 10.8%;
+        width: 30vmax;
+        z-index: -1;
     }
     #line{
         border: none;
@@ -166,54 +169,55 @@
     }
     #crises{
         position: absolute;
-        margin-top: 19vh;
-        margin-left: 24vw;
-        font-size: 6vh;
+        left: 63%;
+        top: 22.5%;
+        font-size: 3vmax;
         font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         color: rgba(255, 255, 255, 0.4);
         z-index: -1;
     }
     #goals{
         position: absolute;
-        margin-top: 19vh;
-        margin-left: 7vw;
-        font-size: 6vh;
+        left: 18%;
+        top: 22.5%;
+        font-size: 3vmax;
         font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         color: rgba(255, 255, 255, 0.4);
         z-index: -1;
     }
     #distractions{
         position: absolute;
-        margin-top: 53vh;
-        margin-left: 3vw;
-        font-size: 6vh;
+        left: 9%;
+        top: 66%;
+        font-size: 3vmax;
         font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         color: rgba(255, 255, 255, 0.4);
         z-index: -1;
     }
     #interruptions{
         position: absolute;
-        margin-top: 53vh;
-        margin-left: 21vw;
-        font-size: 6vh;
+        left: 53%;
+        top: 66%;
+        font-size: 3vmax;
         font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         color: rgba(255, 255, 255, 0.4);
         z-index: -1;
     }
     #importance{
         position: absolute;
-        margin-top: 2vh;
-        margin-left: 15.8vw;
-        font-size: 3vh;
+        left: 41%;
+        top: 3%;
+        font-size: 1.5vmax;
         font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         color: rgba(255, 255, 255, 0.4);
         z-index: -1;
     }
     #urgency{
         position: absolute;
-        margin-top: 33vh;
-        margin-left: 33vw;
-        font-size: 3vh;
+        left: 89%;
+        top: 47%;
+        font-size: 1.5vmax;
+        rotate: 90deg;
         font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         color: rgba(255, 255, 255, 0.4);
         z-index: -1;
