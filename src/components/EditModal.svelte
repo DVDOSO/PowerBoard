@@ -77,9 +77,8 @@
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         padding: 0;
         position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        top: 25%;
+        left: 33%;
         overflow: hidden;
         background-color: rgba(255, 255, 255, 0.8);
         text-align: left;
@@ -95,7 +94,7 @@
 	}
 	@keyframes zoom {
 		from {
-			transform: scale(0.95);
+			transform: scale(0);
 		}
 		to {
 			transform: scale(1);
