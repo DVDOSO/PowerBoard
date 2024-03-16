@@ -55,7 +55,10 @@
             <p class='head'>Urgency: {urgency}</p>
             <input class='slider' bind:value={urgency} type='range' min='1' max='9' />
         </div>
-        <input class='col' bind:value={taskColor} type='text' placeholder='Task Color'/>
+        <div class='col'>
+            <p class='colorhead'>Colour:</p>
+            <input class='picker' bind:value={taskColor} type='color' />
+        </div>
         <div class='bottom'><button class='modalButton' on:click={handleSubmit}>Add Task</button></div>
 	</div>
 </dialog>
@@ -139,6 +142,7 @@
         font-size: 2vmin;
         box-shadow: 0 0 1vh 0 rgba(0,0,0,0.7);
         transition-duration: 0.4s;
+        cursor: pointer;
     }
     .modalButton:hover{
         box-shadow: 0 0 2vh 0 rgba(0,0,0,0.9);
@@ -160,6 +164,7 @@
         height: 3.2vmin;
         transition-duration: 0.4s;
         font-weight: 800;
+        cursor: pointer;
     }
     .exit:hover {
         background: rgb(255, 113, 113);
@@ -241,8 +246,40 @@
     }
     .col {
         position: absolute;
-        top: 20%;
-        left: 64%;
+        top: 19%;
+        left: 77%;
+        width: 7vw;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    .colorhead {
+        font-family: 'Mulish', sans-serif;
+        font-size: 2vmin;
+        display: inline;
+    }
+    .picker {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border: none;
+        cursor: pointer;
+        background-color: transparent;
+        width: 1.7vmax;
+        height: 1.7vmax;
+        float: right;
+        display: inline;
+    }
+    .picker::-webkit-color-swatch-wrapper {
+        padding: 0;
+        margin: 0;
+    }
+    .picker::-webkit-color-swatch {
+        border-radius: 50%;
+    }
+    .picker:hover {
+        border: 1px solid black;
+        border-radius: 50%;
     }
     #center {
         text-align: center;

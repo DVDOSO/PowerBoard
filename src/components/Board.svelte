@@ -100,6 +100,9 @@
         top: 50%;
         transform: translateY(-50%);
     }
+    circle {
+        transition-duration: 0.5s;
+    }
     svg {
         padding: 2vh;
     }
