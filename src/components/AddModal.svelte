@@ -1,5 +1,6 @@
 <script>
     import { dbStore, dbHandlers, dataStore } from '../stores/dbStore';
+    import { authStore } from '../stores/authStore.js';
 
     export let showAddModal;
     export let addTask;
@@ -21,6 +22,17 @@
             return;
         }
         try{
+            dbHandlers.getTasks($authStore.currentUser.uid);
+            for(let task in $dataStore.tasks) {
+                if($dataStore.tasks[task].task == taskName) {
+                    alert('Task already exists');
+                    return;
+                }
+                else if($dataStore.tasks[task].importance == importance && $dataStore.tasks[task].urgency == urgency) {
+                    alert('Position on the board is already taken');
+                    return;
+                }
+            }
             addTask(taskName, taskDescription, importance, urgency, taskColor);
             taskName = taskDescription = importance = urgency = taskColor = '';
             dialog.close();
