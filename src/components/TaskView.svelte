@@ -64,7 +64,6 @@
     }
 
     function editTask(taskId, taskName, taskDescription, importance, urgency, taskColor){
-        console.log("editTask()");
         dbHandlers.editTask($authStore.currentUser.uid, taskId, taskName, taskDescription, importance, urgency, taskColor, false, false);
         updateTable();
     }

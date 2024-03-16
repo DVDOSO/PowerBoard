@@ -1,5 +1,5 @@
 <script>
-    import { dbStore, dbHandlers } from '../stores/dbStore.js';
+    import { dbStore, dbHandlers, dataStore } from '../stores/dbStore.js';
     import { authStore } from '../stores/authStore.js';
     import { database } from '../lib/firebase/firebase.client';
     import { getDatabase, ref, set, onValue, push, remove, get, update } from "firebase/database";
@@ -8,9 +8,20 @@
     export let editTask;
     
     let dialog;
+    let initialized = false;
+    let currentName = '';
+    let currentImp = '';
+    let currentUrg = '';
 
-    $: if (dialog && showEditModal) {
+    $: if (showEditModal && !initialized) {
         dialog.showModal();
+        currentName = $dbStore.currentNameEdit;
+        currentImp = $dbStore.currentImpEdit;
+        currentUrg = $dbStore.currentUrgEdit;
+        initialized = true;
+    }
+    $: if (!showEditModal) {
+        initialized = false;
     }
 
     async function handleSubmit() {
@@ -19,8 +30,21 @@
             return;
         }
         try{
-            editTask(dbStore.currentEdit, $dbStore.currentNameEdit, $dbStore.currentDescEdit, $dbStore.currentImpEdit, $dbStore.currentUrgEdit, $dbStore.currentColEdit);
-            $dbStore.currentNameEdit = $dbStore.currentDescEdit = $dbStore.currentImpEdit = $dbStore.currentUrgEdit = $dbStore.currentColEdit = '';
+            await dbHandlers.getTasks($authStore.currentUser.uid);
+            for(let task in $dataStore.tasks) {
+                if($dataStore.tasks[task].task == $dbStore.currentNameEdit && $dataStore.tasks[task].task != currentName) {
+                    alert('Please do not change the task name to an existing task');
+                    return;
+                }
+                // console.log($dbStore.currentImpEdit, $dbStore.currentUrgEdit, currentImp, currentUrg);
+                // console.log($dataStore.tasks[task].task, $dataStore.tasks[task].importance, $dataStore.tasks[task].urgency);
+                if(($dataStore.tasks[task].importance == $dbStore.currentImpEdit && $dataStore.tasks[task].urgency == $dbStore.currentUrgEdit) 
+                && !($dataStore.tasks[task].importance == currentImp && $dataStore.tasks[task].urgency == currentUrg)) {
+                    alert('Please do not change the position of the task to an existing position');
+                    return;
+                }
+            }
+            await editTask(dbStore.currentEdit, $dbStore.currentNameEdit, $dbStore.currentDescEdit, $dbStore.currentImpEdit, $dbStore.currentUrgEdit, $dbStore.currentColEdit);
             dialog.close();
         }
         catch(err) {

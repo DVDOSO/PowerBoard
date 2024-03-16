@@ -10,7 +10,7 @@
     let taskDescription = '';
     let importance = '1';
     let urgency = '1';
-    let taskColor = '';
+    let taskColor = '#ff0000';
 
     $: if (dialog && showAddModal) {
         dialog.showModal();
@@ -33,8 +33,10 @@
                     return;
                 }
             }
-            addTask(taskName, taskDescription, importance, urgency, taskColor);
-            taskName = taskDescription = importance = urgency = taskColor = '';
+            await addTask(taskName, taskDescription, importance, urgency, taskColor);
+            taskName = taskDescription = '';
+            taskColor = '#ff0000';
+            importance = urgency = '1';
             dialog.close();
         }
         catch(err) {
