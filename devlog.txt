@@ -1,15 +1,16 @@
 --CURRENT TASKS--
 DAVID:
-importance and urgency sliders
-color choosing ui
-overall ui
 
 
 LEO:
 
 --TODO--
-fix wordwrapping for tasks
+fix wordwrapping for tasks in taskView
+favicon
+about page? may remove
+main page (add reviews and description)
 
+further ui changes
 settings
 add boards
 board themes?
