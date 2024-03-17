@@ -34,7 +34,6 @@
 <div class='containerNav'>
     <ul>
         <li><button on:click={routeHome}>Home</button></li>
-        <li><button>About</button></li>
         <div class='auth'>
             <li><button on:click={routeSignup}>Sign Up</button></li>
             <li><button on:click={routeLogin}>Log In</button></li>
