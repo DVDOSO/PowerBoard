@@ -147,7 +147,7 @@
         position: absolute;
         justify-content: center;
         bottom: 3%;
-        left: 41%;
+        left: 38%;
     }
     .modalButton {
         position: static;
@@ -183,6 +183,7 @@
         height: 3.2vmin;
         transition-duration: 0.4s;
         font-weight: 800;
+        font-size: 1.5vmin;
         cursor: pointer;
     }
     .exit:hover {

@@ -179,6 +179,7 @@
         height: 3.2vmin;
         transition-duration: 0.4s;
         font-weight: 800;
+        font-size: 1.5vmin;
         cursor: pointer;
     }
     .exit:hover {

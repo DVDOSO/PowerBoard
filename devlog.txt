@@ -5,9 +5,6 @@ DAVID:
 LEO:
 
 --TODO--
-fix edit button
-fix close button on modal
-
 fix wordwrapping for tasks in taskView
 favicon
 about page? may remove
