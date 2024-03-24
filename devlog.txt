@@ -5,9 +5,7 @@ DAVID:
 LEO:
 
 --TODO--
-fix wordwrapping for tasks in taskView
 favicon
-about page? may remove
 main page (add reviews and description)
 
 preset colour
