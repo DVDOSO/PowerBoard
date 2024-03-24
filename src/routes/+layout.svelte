@@ -3,6 +3,9 @@
     import { auth } from '../lib/firebase/firebase.client'
     import { authStore } from '../stores/authStore'
     import { browser } from '$app/environment'
+
+    export const prerender = true;
+
     onMount(() => {
         const unsubscribe = auth.onAuthStateChanged((user) => {
             //console.log(user)
