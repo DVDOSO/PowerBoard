@@ -5,10 +5,16 @@ DAVID:
 LEO:
 
 --TODO--
+fix edit button
+fix close button on modal
+
 fix wordwrapping for tasks in taskView
 favicon
 about page? may remove
 main page (add reviews and description)
+
+preset colour
+drag dots
 
 further ui changes
 settings
