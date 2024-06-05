@@ -44,11 +44,12 @@
 <style>
     .containerNav {
         padding: 10px;
-        /* background-color:rgb(144, 233, 255); */
+        background-color:rgba(0, 0, 0, 0.217);
         position: fixed;
         top: 0;
         width: 100%;
         height: 7vh;
+        z-index: 5;
     }
     ul, li {
         display: inline;

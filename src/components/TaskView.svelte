@@ -172,12 +172,12 @@
     }
     
     ::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.459);
-    border-radius: 10px;
+        background: rgba(255, 255, 255, 0.459);
+        border-radius: 10px;
     }
 
     ::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.8); 
+        background: rgba(255, 255, 255, 0.8); 
     }
     button{
         cursor: pointer;
