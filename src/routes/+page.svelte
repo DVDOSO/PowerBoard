@@ -13,6 +13,42 @@
             goto('/signup')
         }
     }
+
+    let about1 = null;
+    let about2 = null;
+    let about3 = null;
+    let y, innerHeight;
+
+    
+
+    $: {
+        let vh = innerHeight * 0.01;
+        if(about1){
+            if(y / vh > 40) {
+                about1.classList.add('visible');
+            }
+            else {
+                about1.classList.remove('visible');
+            }
+        }
+        if(about2){
+            if(y / vh > 80) {
+                about2.classList.add('visible');
+            }
+            else {
+                about2.classList.remove('visible');
+            }
+        }
+        if(about3){
+            if(y / vh > 120) {
+                about3.classList.add('visible');
+            }
+            else {
+                about3.classList.remove('visible');
+            }
+        }
+    }
+    
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,22 +57,31 @@
 <NavbarGuest/>
 <title>PowerBoard</title>
 
+<svelte:window bind:scrollY={y} bind:innerHeight={innerHeight}/>
+
 <div class='webpage'>
     <div class='containerMain'>
         <h1 class='title'>
             PowerBoard
         </h1>
         <button class='start' on:click={routeSignup}>Get Started!</button>
+        <div class='arrow'>Scroll ▼</div>
         <div class='about1'>
-            <img src="src/images/logo.png" alt="logo" class='logo'>
-            <h2 class='aboutSubtitle1'>PowerBoard: The <b>Next</b> Way to Work</h2>
-            <h3 class='aboutDescription1'>Powerboard is a task management application that helps you organise your life. With a modern design, Powerboard allows you to create, order, and execute tasks more efficiently.</h3>
-            <img src="src/images/tasks.png" alt="tasks" class='taskImage'>
-            <h2 class='aboutSubtitle2'>Organise your Life.</h2>
-            <h3 class='aboutDescription2'>Easily create tasks unique to you. Make adding and remembering new tasks the least of your worries and always stay on top of your workload.</h3>
-            <img src="src/images/board.png" alt="board" class='boardImage'>
-            <h2 class='aboutSubtitle3'>Visualize your Tasks.</h2>
-            <h3 class='aboutDescription3'>Based on the concept of the Eisenhower matrix, Powerboard allows you to better prioritize your tasks. Organise and schedule your tasks based off its colour and its position on the matrix.</h3>
+            <section class='tag' bind:this={about1}>
+                <img src="src/images/logo.png" alt="logo" class='logo'>
+                <h2 class='aboutSubtitle1'>PowerBoard: The <b>Next</b> Way to Work</h2>
+                <h3 class='aboutDescription1'>Powerboard is a task management application that helps you organise your life. With a modern design, Powerboard allows you to create, order, and execute tasks more efficiently.</h3>
+            </section>
+            <section class='tag' bind:this={about2}>
+                <img src="src/images/tasks.png" alt="tasks" class='taskImage'>
+                <h2 class='aboutSubtitle2'>Organise your Life.</h2>
+                <h3 class='aboutDescription2'>Easily create tasks unique to you. Make adding and remembering new tasks the least of your worries and always stay on top of your workload.</h3>
+            </section>
+            <section class='tag' bind:this={about3}>
+                <img src="src/images/board.png" alt="board" class='boardImage'>
+                <h2 class='aboutSubtitle3'>Visualize your Tasks.</h2>
+                <h3 class='aboutDescription3'>Based on the concept of the Eisenhower matrix, Powerboard allows you to better prioritize your tasks. Organise and schedule your tasks based off its colour and its position on the matrix.</h3>
+            </section>
             <h2 class='subtitle'>Reviews</h2>
             <div class='reviews'>
                 <div class='review'>"It's been such a relief to get the whole, 'choosing your task' thing out of the way. Now I can focus on starting and getting results."<br><b><i>-Maximus W</i></b></div>
@@ -103,6 +148,16 @@
         animation-fill-mode: forwards;
         color: white;
     }
+    .arrow {
+        font-family: "Mulish", sans-serif;
+        margin-top: 30vh;
+        font-size: 3vh;
+        color: white;
+        animation: fadeIn ease 3s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+        animation: pulse 2s infinite;
+    }
     .start{
         margin-top: 5vh;
         display: inline_block;
@@ -139,8 +194,21 @@
             background-position: 0% 50%;
         }
     }
+    @keyframes pulse {
+        0% {
+            transform: scale(0.8);
+        }
+
+        70% {
+            transform: scale(1);
+        }
+
+        100% {
+            transform: scale(0.8);
+        }
+    }
     .about1 {
-        margin-top: 43vh;
+        margin-top: 20vh;
         padding: 3vh;
         background-color: rgba(255, 255, 255, 0.75);
         width: 100vw;
@@ -201,6 +269,7 @@
         margin-left: 6vw;
         margin-top: 10vh;
         border-radius: 10px;
+        transform: translate(0, -18vh);
     }
     .boardImage{
         float: right;
@@ -244,7 +313,7 @@
         font-size: 2.5vw;
         font-style: normal;
         color: rgba(0, 0, 0, 0.75);
-        padding-left: 10vw;
+        padding-left: 9vw;
         padding-top: 12vh;
     }
     .aboutDescription3 {
@@ -255,7 +324,7 @@
         color: rgba(0, 0, 0, 0.75);
         padding-top: 2vh;
         width: 50vw;
-        margin-left: 13vw;
+        margin-left: 10vw;
     }
     .footnoteText{
         font-family: "Ubuntu", sans-serif;
@@ -272,5 +341,14 @@
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+    .tag{
+        opacity: 0;
+        transform: translate(0, 20vh);
+        transition: all 1s;
+    }
+    .visible, :global(.tag.visible){
+        opacity: 1;
+        transform: translate(0, 0);
     }
 </style>
