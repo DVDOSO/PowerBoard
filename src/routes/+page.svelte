@@ -176,6 +176,7 @@
         font-family: "Mulish", sans-serif;
         color: white;
         border-color: white;
+        font-size: 2vh;
     }
     .start2{
         margin-top: 5vh;

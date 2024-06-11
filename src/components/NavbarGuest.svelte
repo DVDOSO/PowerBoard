@@ -46,7 +46,7 @@
 
 <style>
     .containerNav {
-        padding: 10px;
+        padding: 1.2vh;
         background-color:rgba(0, 0, 0, 0.217);
         position: fixed;
         top: 0;

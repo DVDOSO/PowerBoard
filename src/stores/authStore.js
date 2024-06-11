@@ -91,10 +91,11 @@ export const authHandlers = {
         signOut(auth)
             .then(() => {
                 authStore.currentUser = null;
+                window.location.href = '/';
             })
             .catch((error) => {
                 alert(error);
-            });
+        });
     },
     resetPassword: async (email) => {
         sendPasswordResetEmail(auth, email)

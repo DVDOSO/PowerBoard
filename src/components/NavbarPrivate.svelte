@@ -24,7 +24,7 @@
 
 <style>
     .containerNav {
-        padding: 10px;
+        padding: 1.2vh;
         position: fixed;
         top: 0;
         width: 100%;
