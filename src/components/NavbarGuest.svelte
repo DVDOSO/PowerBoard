@@ -3,6 +3,7 @@
     import { authHandlers, authStore } from '../stores/authStore.js';
     async function routeHome() {
         goto('/')
+        console.log("home")
     }
     async function routeSignup() {
         console.log($authStore.currentUser)
@@ -18,10 +19,12 @@
         console.log($authStore.currentUser)
         if($authStore.currentUser !== null && $authStore.currentUser.emailVerified) {
             goto('/dashboard')
+            console.log("already log in")
         }
         else {
             $authStore.currentUser = null;
             goto('/login')
+            console.log("not log in")
         }
     }
 </script>

@@ -29,6 +29,7 @@
         top: 0;
         width: 100%;
         height: 7vh;
+        background-color:rgba(0, 0, 0, 0.217);
     }
     ul, li {
         display: inline;
