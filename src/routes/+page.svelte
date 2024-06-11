@@ -78,17 +78,17 @@
         <div class='arrow'>Scroll ▼</div>
         <div class='about1'>
             <section class='tag' bind:this={about1}>
-                <img src="src/images/logo.png" alt="logo" class='logo'>
+                <img src="./logo.png" alt="logo" class='logo'>
                 <h2 class='aboutSubtitle1'>PowerBoard: The <b>Next</b> Way to Work</h2>
                 <h3 class='aboutDescription1'>Powerboard is a task management application that helps you organise your life. With a modern design, Powerboard allows you to create, order, and execute tasks more efficiently.</h3>
             </section>
             <section class='tag' bind:this={about2}>
-                <img src="src/images/tasks.png" alt="tasks" class='taskImage'>
+                <img src="./tasks.png" alt="tasks" class='taskImage'>
                 <h2 class='aboutSubtitle2'>Organise your Life.</h2>
                 <h3 class='aboutDescription2'>Easily create tasks unique to you. Make adding and remembering new tasks the least of your worries and always stay on top of your workload.</h3>
             </section>
             <section class='tag' bind:this={about3}>
-                <img src="src/images/board.png" alt="board" class='boardImage'>
+                <img src="./board.png" alt="board" class='boardImage'>
                 <h2 class='aboutSubtitle3'>Visualize your Tasks.</h2>
                 <h3 class='aboutDescription3'>Based on the concept of the Eisenhower matrix, Powerboard allows you to better prioritize your tasks. Organise and schedule your tasks based off its colour and its position on the matrix.</h3>
             </section>

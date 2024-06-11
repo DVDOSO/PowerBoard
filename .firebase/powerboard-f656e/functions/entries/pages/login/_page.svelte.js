@@ -1,0 +1,21 @@
+import { c as create_ssr_component, a as subscribe, f as set_store_value, v as validate_component, b as add_attribute } from "../../../chunks/ssr.js";
+import { N as NavbarGuest } from "../../../chunks/NavbarGuest.js";
+import { a as authStore } from "../../../chunks/authStore.js";
+const _page_svelte_svelte_type_style_lang = "";
+const css = {
+  code: `.webpage.svelte-zlbt9l{height:100vh;overflow:hidden;background:linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab, #23a6d5, #e73c7e, #ee7752);background-size:400% 400%;animation:svelte-zlbt9l-gradient 30s infinite ease}.containerMain.svelte-zlbt9l{text-align:center;margin:0;padding:10px;width:100%}.title.svelte-zlbt9l{font-size:4vmin;margin-top:30vh;margin-bottom:3vh;font-family:"Mulish", sans-serif;color:white}.box.svelte-zlbt9l{border:2px dashed white;width:30vw;height:50vh;left:35vw;top:23vh;position:fixed;border-radius:2vh;pointer-events:none}label.svelte-zlbt9l{display:block;justify-content:center;margin-top:1vh;margin-bottom:1vh}input.svelte-zlbt9l{padding:1vh;width:30vmin;border-radius:5px;border:white solid 1px;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;height:4vmin}input.svelte-zlbt9l:focus{outline-color:rgb(0, 22, 135);outline-style:double;outline-width:1px}.submitButton.svelte-zlbt9l{margin-top:1vh;margin-bottom:1vh;background-color:transparent;border:rgb(255, 255, 255) solid 1px;color:rgb(255, 255, 255);padding:1vmin;list-style-type:none;font-size:2vmin;cursor:pointer;border-radius:5px;transition-duration:0.4s;font-family:'Mulish', sans-serif}.submitButton.svelte-zlbt9l:hover{background-color:rgb(255, 255, 255);color:rgb(85, 85, 85);box-shadow:0 0 3vh rgba(255, 255, 255, .5)}p.svelte-zlbt9l{margin-top:2vh;display:inline;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;color:white;font-size:1.6vmin}a.svelte-zlbt9l{margin-top:2vh;display:inline-block;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;text-decoration:none;font-size:1.6vmin}.forgotPassword.svelte-zlbt9l{display:block;margin-top:2vh}@keyframes svelte-zlbt9l-gradient{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}`,
+  map: null
+};
+const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  let $authStore, $$unsubscribe_authStore;
+  $$unsubscribe_authStore = subscribe(authStore, (value) => $authStore = value);
+  let email = "";
+  let password = "";
+  set_store_value(authStore, $authStore.currentUser = null, $authStore);
+  $$result.css.add(css);
+  $$unsubscribe_authStore();
+  return `<link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet"> <link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet"> <title data-svelte-h="svelte-o1os5">PowerBoard</title> ${validate_component(NavbarGuest, "NavbarGuest").$$render($$result, {}, {}, {})} <div class="webpage svelte-zlbt9l"><div class="box svelte-zlbt9l"></div> <div class="containerMain svelte-zlbt9l"><h1 class="title svelte-zlbt9l" data-svelte-h="svelte-14y6fbe">Log In</h1> <form><label class="svelte-zlbt9l"><input type="email" placeholder="Email" class="svelte-zlbt9l"${add_attribute("value", email, 0)}></label> <label class="svelte-zlbt9l"><input type="password" placeholder="Password" class="svelte-zlbt9l"${add_attribute("value", password, 0)}></label> <button class="submitButton svelte-zlbt9l" data-svelte-h="svelte-1r8tf9w">Log In</button></form> <p class="svelte-zlbt9l" data-svelte-h="svelte-qd51yb">Don&#39;t have an account?</p> <a href="/signup" class="svelte-zlbt9l" data-svelte-h="svelte-c5kp8h"> Sign Up</a> <p class="svelte-zlbt9l" data-svelte-h="svelte-uh3d99"> or</p> <a href="/dashboardGuest" class="svelte-zlbt9l" data-svelte-h="svelte-1uf1h4m"> Try As Guest</a> <a href="/passwordreset" class="forgotPassword svelte-zlbt9l" data-svelte-h="svelte-y9seb2">Forgot Password</a></div> </div>`;
+});
+export {
+  Page as default
+};
