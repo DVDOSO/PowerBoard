@@ -51,7 +51,9 @@
             <button class='submitButton' on:click={handleSubmit}>Log In</button>
         </form>
         <p>Don't have an account?</p>
-        <a href="/signup">Sign Up</a>
+        <a href="/signup">&nbsp;Sign Up</a>
+        <p>&nbsp;or</p>
+        <a href="/dashboardGuest">&nbsp;Try As Guest</a>
         <a href='/passwordreset' class='forgotPassword'>Forgot Password</a>
     </div>
 </div>
@@ -108,6 +110,7 @@
     }
     .submitButton {
         margin-top: 1vh;
+        margin-bottom: 1vh;
         background-color: transparent;
         border: rgb(255, 255, 255) solid 1px;
         color: rgb(255, 255, 255);

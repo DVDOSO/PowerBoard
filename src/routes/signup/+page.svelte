@@ -58,6 +58,9 @@
         </form>
         <p>Already have an account?</p>
         <a href="/login">Log In</a>
+        <br>
+        <p>Don't want to make an account?</p>
+        <a href="/dashboardGuest">Try As Guest</a>
     </div>
 </div>
 
@@ -114,6 +117,7 @@
 
     .submitButton {
         margin-top: 1vh;
+        margin-bottom: 2vh;
         background-color: transparent;
         border: rgb(255, 255, 255) solid 1px;
         color: rgb(255, 255, 255);
@@ -131,14 +135,14 @@
         box-shadow: 0 0 3vh rgba(255, 255, 255, .5);
     }
     p {
-        margin-top: 2vh;
+        margin-top: 1vh;
         display: inline;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         color: white;
         font-size: 1.6vmin;
     }
     a {
-        margin-top: 2vh;
+        margin-top: 1vh;
         display: inline-block;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         text-decoration: none;

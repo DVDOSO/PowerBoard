@@ -13,10 +13,6 @@
                     currentUser: user
                 };
             });
-
-            if(browser && $authStore?.currentUser === null && !$authStore.isLoading && window.location.pathname !== '/') {
-                window.location.href = '/';
-            }
         })
         return unsubscribe;
     });
