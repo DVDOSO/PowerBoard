@@ -23,7 +23,7 @@ Welcome to the GitHub page of PowerBoard! This application helps you organize yo
 
 ## Usage
 
-1. Open the app in your browser: [https://powerboard-f656e.web.app/dashboardGuest](https://powerboard-f656e.web.app/dashboardGuest)
+1. Open the app in your browser: [https://powerboard-f656e.web.app](https://powerboard-f656e.web.app)
 
 2. Sign up for an account or use the guest access to try out the app.
 
