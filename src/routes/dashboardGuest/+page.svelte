@@ -17,7 +17,7 @@
     <NavbarGuest/>
     <BoardGuest/>
     <div class='containerMain'>
-        <h2 class='welcome'>Welcome guest! Sign up to save your tasks!</h2>
+        <h2 class='welcome'>Welcome guest!<br>Sign up to save your tasks!</h2>
         <hr>
         <div id='taskView'>
             <TaskViewGuest/>
@@ -69,7 +69,7 @@
         border: 0;
         height: 1px;
         background: rgba(255, 255, 255, 0.5);
-        margin-top: 7vh;
+        margin-top: 3vh;
         width: 30vw;
         margin-left: 7vw;
     }

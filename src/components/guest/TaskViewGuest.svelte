@@ -8,15 +8,9 @@
     let showAddModal = false;
     let showEditModal = false;
 
-    // onMount(() => {
-    //     // Dummy task
-    //     //addTask('!!@@##', 'Dummy Task', '1', '1', 'red')
-
-    //     // Remove dummy task
-    //     //removeTask('!!@@##', 'Dummy Task', '1', '1', 'red');
-
-    //     updateTable();
-    // });
+    onMount(() => {
+        updateTable();
+    });
 
     function addButtonListeners() {
         let deleteButtons = document.getElementsByClassName('delButtons');
