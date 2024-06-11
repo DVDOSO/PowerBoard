@@ -1,38 +1,36 @@
-# create-svelte
+# PowerBoard: Task Planner
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+Welcome to the GitHub page of PowerBoard! This application helps you organize your tasks using the Eisenhower matrix, allowing you to prioritize and manage your time effectively.
 
-## Creating a project
+## Features
 
-If you're seeing this, you've probably already done this step. Congrats!
+- **Task Management**: Add, edit, and remove tasks.
+- **Eisenhower Matrix Visualization**: Visualize tasks on a matrix based on their importance and urgency.
+- **Guest Access**: Try the app as a guest without signing up.
+- **User Accounts**: Create an account to save and manage your tasks.
+- **Customizable Tasks**: Provide a brief description and choose the color for each task point on the graph.
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+## Screenshots
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+### Home Screen
+![Home Screen](./screenshots/homeScreen.png)
 
-## Developing
+### Add Task
+![Add Task](./screenshots/addTask.png)
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+### Task Visualization
+![Task Visualization](./screenshots/dashboard.png)
 
-```bash
-npm run dev
+## Usage
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+1. Open the app in your browser: [https://powerboard-f656e.web.app/dashboardGuest](https://powerboard-f656e.web.app/dashboardGuest)
 
-## Building
+2. Sign up for an account or use the guest access to try out the app.
 
-To create a production version of your app:
+3. Add tasks by providing a description, importance, and urgency value.
 
-```bash
-npm run build
-```
+4. Visualize your tasks on the Eisenhower matrix.
 
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+## Contact
+Built using SvelteKit and Google Firebase. Created by David Jiang.
+For any inquiries or support, please contact me at [davidjiang0307@gmail.com](davidjiang0307@gmail.com) or visit my website.
