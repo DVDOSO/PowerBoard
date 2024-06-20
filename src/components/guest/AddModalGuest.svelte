@@ -7,8 +7,8 @@
     let dialog;
     let taskName = '';
     let taskDescription = '';
-    let importance = '1';
-    let urgency = '1';
+    let importance = '5';
+    let urgency = '5';
     let taskColor = '#ff0000';
 
     $: if (dialog && showAddModal) {
@@ -45,7 +45,7 @@
             await addTask(taskName, taskDescription, importance, urgency, taskColor);
             taskName = taskDescription = '';
             taskColor = '#ff0000';
-            importance = urgency = '1';
+            importance = urgency = '5';
             dialog.close();
         }
         catch(err) {
@@ -74,11 +74,15 @@
         <textarea class='desc' bind:value={taskDescription} type='text' placeholder='Task Description'/>
         <div class='imp'>
             <p class='head'>Importance: {importance}</p>
+            –
             <input class='slider' bind:value={importance} type='range' min='1' max='9' />
+            +
         </div>
         <div class='urg'>
             <p class='head'>Urgency: {urgency}</p>
+            –
             <input class='slider' bind:value={urgency} type='range' min='1' max='9' />
+            +
         </div>
         <div class='col'>
             <p class='colorhead'>Colour:</p>

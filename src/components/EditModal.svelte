@@ -69,11 +69,15 @@
         <textarea class='desc' bind:value={$dbStore.currentDescEdit} type='text' placeholder='Task Description'/>
         <div class='imp'>
             <p class='head'>Importance: {$dbStore.currentImpEdit}</p>
+            –
             <input class='slider' bind:value={$dbStore.currentImpEdit} type='range' min='1' max='9' />
+            +
         </div>
         <div class='urg'>
             <p class='head'>Urgency: {$dbStore.currentUrgEdit}</p>
+            –
             <input class='slider' bind:value={$dbStore.currentUrgEdit} type='range' min='1' max='9' />
+            +
         </div>
         <div class='col'>
             <p class='colorhead'>Colour:</p>

@@ -94,16 +94,16 @@
             </section>
             <h2 class='subtitle'>Reviews</h2>
             <div class='reviews'>
-                <div class='review'>"It's been such a relief to get the whole, 'choosing your task' thing out of the way. Now I can focus on starting and getting results."<br><b><i>-Maximus W</i></b></div>
-                <div class='review'>"A great tool; helped tremendously in both prioritising tasks to do first, as well as thinking about what makes a task so urgent, or important. Done wonders for my procrastination!!"<br><b><i>-Andrew H</i></b></div>
-                <div class='review'>"Such a helpful app! Honestly has helped me as much as, if not more than premium alternatives. Everyone should try this out; it has been such a time save."<br><b><i>-Leo L</i></b></div>
+                <div class='review'>"It's been such a relief to get the whole, 'choosing your task' thing out of the way. Now I can focus on starting and getting results."<br><br><b><i>-Maximus W</i></b></div>
+                <div class='review'>"A great tool; helped tremendously in both prioritising tasks to do first, as well as thinking about what makes a task so urgent, or important. Done wonders for my procrastination!!"<br><br><b><i>-Andrew H</i></b></div>
+                <div class='review'>"Such a helpful app! Honestly has helped me as much as, if not more than premium alternatives. Everyone should try this out; it has been such a time save."<br><br><b><i>-Leo L</i></b></div>
             </div>
             <div class='center'>
                 <button class='start2' on:click={routeGuest}>Try It Out Now!</button>
             </div>
             <div class='footnote'>
                 <h2 class='footnoteText'>Created with Google FireBase and SvelteKit</h2>
-                <h2 class="footnoteText">Developed by: David Jiang</h2>
+                <h2 class="footnoteText" style="margin-left:5vw">Developed by: David Jiang</h2>
                 <h2 class='footnoteText'>Source Code: <a href="https://github.com/DVDOSO/PowerBoard">https://github.com/DVDOSO/PowerBoard</a></h2>
             </div>
         </div>
@@ -183,7 +183,7 @@
         display: inline_block;
         justify-content: center;
         font-family: "Mulish", sans-serif;
-        font-size: 2vh;
+        font-size: 3vh;
         color: rgb(0, 0, 0);
         border-color: rgb(0, 0, 0);
     }
@@ -349,6 +349,8 @@
     }
     .footnote{
         margin-top: 10vh;
+        display: flex;
+        justify-content: space-between;
     }
     .center{
         display: flex;

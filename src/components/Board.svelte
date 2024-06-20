@@ -6,7 +6,7 @@
     import { authStore } from '../stores/authStore.js';
 	import { derived, writable } from 'svelte/store';
 
-    let text = '';
+    let text = 'Hover over a task!';
     let description = '';
 
     const dots = derived(dataStore, $dataStore => {
@@ -30,7 +30,7 @@
     }
 
     function handleMouseOff() {
-        text = '';
+        text = 'Hover over a task!';
         description = '';
     }
 

@@ -77,11 +77,15 @@
         <textarea class='desc' bind:value={$guestTasks.currentDescEdit} type='text' placeholder='Task Description'/>
         <div class='imp'>
             <p class='head'>Importance: {$guestTasks.currentImpEdit}</p>
+            –
             <input class='slider' bind:value={$guestTasks.currentImpEdit} type='range' min='1' max='9' />
+            +
         </div>
         <div class='urg'>
             <p class='head'>Urgency: {$guestTasks.currentUrgEdit}</p>
+            –
             <input class='slider' bind:value={$guestTasks.currentUrgEdit} type='range' min='1' max='9' />
+            +
         </div>
         <div class='col'>
             <p class='colorhead'>Colour:</p>
