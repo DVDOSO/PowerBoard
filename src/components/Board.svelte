@@ -42,22 +42,7 @@
 
 <div class='containerMain'>
     <div class='plot'>
-        <div class='horizontalArrow'>
-            <hr id='line'>
-            <div id='left'>˂</div>
-            <div id='right'>˃</div>
-        </div>
-        <div class='verticalArrow'>
-            <hr id='line'>
-            <div id='left'>˂</div>
-            <div id='right'>˃</div>
-        </div>
-        <div id='crises'>Crises</div>
-        <div id='goals'>Goals</div>
-        <div id='distractions'>Distractions</div>
-        <div id='interruptions'>Interruptions</div>
-        <div id='importance'>Importance</div>
-        <div id='urgency'>Urgency</div>
+        <img src="./boardText.png" alt="boardText" class='boardText'>
         <svg height="100%" width="100%" viewBox="0 0 100 100">
             {#each $dots as dot (dot.id)}
                 <!-- svelte-ignore a11y-no-static-element-interactions -->
@@ -134,97 +119,14 @@
         font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         line-height: 1.2;
     }
-    .horizontalArrow {
-        position: absolute;
+    .boardText {
+        position: fixed;
+        height: 38.3vmax;
+        width: 38.3vmax;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 30vmax;
-        z-index: -1;
-    }
-    .verticalArrow {
-        position: absolute;
-        rotate: 90deg;
-        top: 50%;
-        left: 10.8%;
-        width: 30vmax;
-        z-index: -1;
-    }
-    #line{
-        border: none;
-        border-top: .7vh rgba(255, 255, 255, 0.4) dotted;
-    }
-    #left{
-        position: fixed;
-        margin-top: -5.7vh;
-        margin-left: -1vw;
-        font-size: 8vh;
-        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        color: rgba(255, 255, 255, 0.4);
-    }
-    #right{
-        position: fixed;
-        margin-top: -5.7vh;
-        margin-left: 29vw;
-        font-size: 8vh;
-        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        color: rgba(255, 255, 255, 0.4);
-    }
-    #crises{
-        position: absolute;
-        left: 63%;
-        top: 22.5%;
-        font-size: 3vmax;
-        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        color: rgba(255, 255, 255, 0.4);
-        z-index: -1;
-    }
-    #goals{
-        position: absolute;
-        left: 18%;
-        top: 22.5%;
-        font-size: 3vmax;
-        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        color: rgba(255, 255, 255, 0.4);
-        z-index: -1;
-    }
-    #distractions{
-        position: absolute;
-        left: 9%;
-        top: 66%;
-        font-size: 3vmax;
-        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        color: rgba(255, 255, 255, 0.4);
-        z-index: -1;
-    }
-    #interruptions{
-        position: absolute;
-        left: 53%;
-        top: 66%;
-        font-size: 3vmax;
-        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        color: rgba(255, 255, 255, 0.4);
-        z-index: -1;
-    }
-    #importance{
-        position: absolute;
-        left: 41%;
-        top: 3%;
-        font-size: 1.5vmax;
-        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        color: rgba(255, 255, 255, 0.4);
-        z-index: -1;
-    }
-    #urgency{
-        position: absolute;
-        left: 89%;
-        top: 47%;
-        font-size: 1.5vmax;
-        rotate: 90deg;
-        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        color: rgba(255, 255, 255, 0.4);
-        z-index: -1;
-    
+        z-index: -4;
     }
     circle {
         filter: drop-shadow(0px 0px 1px rgb(255, 255, 255));

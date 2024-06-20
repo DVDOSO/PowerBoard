@@ -30,17 +30,28 @@
         </div>
     </div>
 {:else}
-    <div>
-        Loading...
+    <div class='webpageLoading'>
+        <p class='loading'>Loading...</p>
     </div>
 {/if}
 
 <style>
     .webpage {
         height: 100vh;
+        width: 100vw;
         background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab, #23a6d5, #e73c7e, #ee7752);
         background-size: 400% 400%;
         animation: gradient 30s infinite ease;
+    }
+    .webpageLoading {
+        height: 100vh;
+        width: 100vw;
+        background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab, #23a6d5, #e73c7e, #ee7752);
+        background-size: 400% 400%;
+        animation: gradient 30s infinite ease;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     .containerMain {
         /* background-color: rgb(177, 252, 181); */
@@ -83,5 +94,12 @@
         width: 30vw;
         margin-left: 7vw;
     }
-
+    .loading {
+        font-family: 'Ubuntu', sans-serif;
+        font-weight: 200;
+        color: white;
+        font-size: 6vw;
+        word-wrap: break-word;
+        text-align: center;
+    }
 </style>

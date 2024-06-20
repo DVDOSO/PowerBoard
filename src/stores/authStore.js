@@ -13,7 +13,7 @@ export const authHandlers = {
         sendEmailVerification(authStore.currentUser)
             .then(() => {
                 authStore.currentUser = null;
-                alert("Email verification sent");
+                alert("Email verification sent.");
                 window.location.href = '/signup';
             })
             .catch((error) => {
@@ -29,7 +29,7 @@ export const authHandlers = {
                 // Signed in 
                 authStore.currentUser = auth.currentUser;
                 if(!authStore.currentUser.emailVerified) {
-                    alert('Email not verified');
+                    alert('Email not verified.');
                     window.location.href = '/login';
                 }
                 else {
@@ -38,25 +38,25 @@ export const authHandlers = {
             })
             .catch((error) => {
                 if(error.code === 'auth/wrong-password') {
-                    alert('Wrong password');
+                    alert('Wrong password.');
                 }
                 else if(error.code === 'auth/user-not-found') {
-                    alert('User not found');
+                    alert('User not found.');
                 }
                 else if(error.code === 'auth/invalid-email') {
-                    alert('Invalid email');
+                    alert('Invalid email.');
                 }
                 else if(error.code === 'auth/invalid-login-credentials') {
-                    alert('Wrong password');
+                    alert('Wrong password.');
                 }
                 else if(error.code === 'auth/user-disabled') {
-                    alert('User disabled');
+                    alert('User disabled.');
                 }
                 else if(error.code === 'auth/too-many-requests') {
-                    alert('Too many requests');
+                    alert('Too many requests.');
                 }
                 else if(error.code === 'auth/operation-not-allowed') {
-                    alert('Operation not allowed');
+                    alert('Operation not allowed.');
                 }
                 else {
                     alert(error);
@@ -72,13 +72,13 @@ export const authHandlers = {
             })
             .catch((error) => {
                 if(error.code === 'auth/email-already-in-use') {
-                    alert('Email already in use');
+                    alert('Email already in use.');
                 }
                 else if(error.code === 'auth/weak-password') {
-                    alert('Password must be at least 6 characters');
+                    alert('Password must be at least 6 characters.');
                 }
-                else if(error.code === 'auth/invalid-email') {
-                    alert('Invalid email');
+                else if(error.code === 'auth/invalid-email.') {
+                    alert('Invalid email.');
                 }
                 else {
                     alert(error);
@@ -100,7 +100,7 @@ export const authHandlers = {
     resetPassword: async (email) => {
         sendPasswordResetEmail(auth, email)
             .then(() => {
-                alert('Password reset email sent');
+                alert('Password reset email sent.');
             })
             .catch((error) => {
                 alert(error);

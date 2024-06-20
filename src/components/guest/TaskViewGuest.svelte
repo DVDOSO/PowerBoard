@@ -91,7 +91,7 @@
 
 <div class='containerMain'>
     <h1 class='title'>Tasks</h1>
-    <button class='addTask' on:click={() => (showAddModal = true)}>+</button>
+    <button class='addTask' on:click={() => (showAddModal = true)}><p class='buttonText'>+</p></button>
     <div class='taskList'>
         <table class='taskTable'>
         </table>
@@ -128,15 +128,19 @@
         margin-left: 12vmin;
         margin-top: 0.3vh;
         z-index: 5;
-        color: white;
-        border-radius: 50%;
+        border-radius: 30%;
         width: 4.2vh;
         height: 4.2vh;
         background: linear-gradient(-45deg, #e73c7e, #23a6d5);
         border: none;
-        font-size: 4vh;
         box-shadow: 0 0 1vh 0 rgba(0,0,0,0.7);
         transition-duration: 0.4s;
+        padding: 0;
+    }
+    .buttonText {
+        font-family: 'Open Sans', sans-serif;
+        color: white;
+        font-size: 3vh;
     }
     .addTask:hover {
         box-shadow: 0 0 2vh 0 rgba(0,0,0,0.9);

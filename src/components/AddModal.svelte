@@ -18,18 +18,18 @@
 
     async function handleSubmit() {
         if(!taskName || !taskDescription || !importance || !urgency || !taskColor) {
-            alert('Please fill out all fields');
+            alert('Please fill out all fields.');
             return;
         }
         try{
             dbHandlers.getTasks($authStore.currentUser.uid);
             for(let task in $dataStore.tasks) {
                 if($dataStore.tasks[task].task == taskName) {
-                    alert('Task already exists');
+                    alert('Task already exists.');
                     return;
                 }
                 else if($dataStore.tasks[task].importance == importance && $dataStore.tasks[task].urgency == urgency) {
-                    alert('Position on the board is already taken');
+                    alert('Position on the board is already taken.');
                     return;
                 }
             }

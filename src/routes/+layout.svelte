@@ -17,9 +17,6 @@
             if(browser && $authStore?.currentUser === null && window.location.pathname === '/dashboard') {
                 window.location.href = '/';
             }
-            // if(browser && $authStore?.currentUser === null && !$authStore.isLoading && window.location.pathname !== '/') {
-            //     window.location.href = '/';
-            // }
         })
         return unsubscribe;
     });

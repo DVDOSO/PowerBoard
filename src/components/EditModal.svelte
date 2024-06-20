@@ -26,21 +26,21 @@
 
     async function handleSubmit() {
         if(!$dbStore.currentNameEdit || !$dbStore.currentDescEdit || !$dbStore.currentImpEdit || !$dbStore.currentUrgEdit || !$dbStore.currentColEdit) {
-            alert('Please fill out all fields');
+            alert('Please fill out all fields.');
             return;
         }
         try{
             await dbHandlers.getTasks($authStore.currentUser.uid);
             for(let task in $dataStore.tasks) {
                 if($dataStore.tasks[task].task == $dbStore.currentNameEdit && $dataStore.tasks[task].task != currentName) {
-                    alert('Please do not change the task name to an existing task');
+                    alert('Please do not change the task name to an existing task.');
                     return;
                 }
                 // console.log($dbStore.currentImpEdit, $dbStore.currentUrgEdit, currentImp, currentUrg);
                 // console.log($dataStore.tasks[task].task, $dataStore.tasks[task].importance, $dataStore.tasks[task].urgency);
                 if(($dataStore.tasks[task].importance == $dbStore.currentImpEdit && $dataStore.tasks[task].urgency == $dbStore.currentUrgEdit) 
                 && !($dataStore.tasks[task].importance == currentImp && $dataStore.tasks[task].urgency == currentUrg)) {
-                    alert('Please do not change the position of the task to an existing position');
+                    alert('Please do not change the position of the task to an existing position.');
                     return;
                 }
             }

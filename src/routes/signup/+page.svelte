@@ -81,7 +81,7 @@
     .box{
         border: 2px dashed white;
         width: 30vw;
-        height: 50vh;
+        height: 53vh;
         left: 35vw;
         top: 23vh;
         position: fixed;
