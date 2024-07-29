@@ -33,4 +33,4 @@ Welcome to the GitHub page of PowerBoard! This application helps you organize yo
 
 ## Contact
 Built using SvelteKit and Google Firebase. Created by David Jiang.
-For any inquiries or support, please contact me at [davidjiang0307@gmail.com](davidjiang0307@gmail.com) or visit my website.
+For any inquiries or support, please contact me at [davidjiang0307@gmail.com](davidjiang0307@gmail.com) or visit my [website](https://dvdoso.github.io/portfolio-website/).
