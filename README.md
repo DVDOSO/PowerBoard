@@ -1,4 +1,4 @@
-# PowerBoard: Task Planner
+# PowerBoard: Full Stack Task Management Application
 
 Welcome to the GitHub page of PowerBoard! This application helps you organize your tasks using the Eisenhower matrix, allowing you to prioritize and manage your time effectively.
 
